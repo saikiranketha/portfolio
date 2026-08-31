@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Kiran Ketha | Full Stack Developer &amp; CSE Undergrad</title>
+    <meta name="description"
+        content="Official 3D interactive portfolio of Sai Kiran Ketha - Full Stack Developer, Computer Science Engineering Student at Swarnandhra College, and NxtWave CCBP 4.0 Fellow.">
+    <meta name="keywords"
+        content="Sai Kiran Ketha, Full Stack Developer, NxtWave CCBP 4.0, Swarnandhra College, React, Node.js, Python, SQL, Portfolio, WebGL, 3D Web">
+    <meta name="author" content="Sai Kiran Ketha">
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sai Kiran Ketha | Full Stack Developer Portfolio">
+    <meta property="og:description"
+        content="Explore the interactive 3D portfolio, projects, skills, and resume of Sai Kiran Ketha.">
+    <meta property="og:image" content="assets/portfolio_3d.jpg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Remix Icons & FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Libraries: Three.js, GSAP, Canvas Confetti -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Preloader Screen -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-orbit">
+                <div class="orbit-ring ring-1"></div>
+                <div class="orbit-ring ring-2"></div>
+                <div class="orbit-ring ring-3"></div>
+                <div class="preloader-logo">SK</div>
+            </div>
+            <div class="preloader-progress-track">
+                <div class="preloader-progress-bar" id="load-bar"></div>
+            </div>
+            <div class="preloader-status">
+                <span id="load-text">Initializing 3D Universe...</span>
+                <span id="load-percent">0%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Custom Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-glow" id="cursor-glow"></div>
+
+    <!-- 3D WebGL Background Canvas -->
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- Navigation Header -->
+    <header class="site-header" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="brand-logo" aria-label="Sai Kiran Ketha">
+                <div class="logo-box">
+                    <span class="logo-initials">SK</span>
+                    <span class="logo-pulse"></span>
+                </div>
+                <div class="brand-text">
+                    <span class="name">Sai Kiran</span>
+                    <span class="role">Developer</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link active"><i class="ri-home-4-line"></i> <span>Home</span></a></li>
+                    <li><a href="#about" class="nav-link"><i class="ri-user-3-line"></i> <span>About</span></a></li>
+                    <li><a href="#skills" class="nav-link"><i class="ri-code-box-line"></i> <span>Skills</span></a></li>
+                    <li><a href="#projects" class="nav-link"><i class="ri-folder-shield-2-line"></i> <span>Projects</span></a></li>
+                    <li><a href="#resume" class="nav-link"><i class="ri-article-line"></i> <span>Resume</span></a></li>
+                    <li><a href="#timeline" class="nav-link"><i class="ri-git-commit-line"></i> <span>Journey</span></a></li>
+                    <li><a href="#contact" class="nav-link"><i class="ri-mail-send-line"></i> <span>Contact</span></a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Theme Toggle Button -->
+                <button class="icon-btn theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark and light theme" title="Toggle Theme">
+                    <i class="ri-moon-clear-fill moon-icon"></i>
+                    <i class="ri-sun-fill sun-icon"></i>
+                </button>
+
+                <!-- Quick Resume Trigger -->
+                <a href="#resume" class="btn btn-outline nav-resume-btn">
+                    <i class="ri-file-download-line"></i>
+                    <span>Resume</span>
+                </a>
+
+                <!-- Mobile Hamburger -->
+                <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- ================= HERO SECTION ================= -->
+        <section class="hero-section" id="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="status-badge" data-reveal="fade-up">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Available for Software Internships (2026)</span>
+                    </div>
+
+                    <h1 class="hero-title" data-reveal="fade-up" data-delay="100">
+                        Hi, I'm <span class="gradient-text glow-text">Sai Kiran</span><br>
+                        <span class="title-sub">Ketha.</span>
+                    </h1>
+
+                    <div class="typewriter-container" data-reveal="fade-up" data-delay="200">
+                        <span class="typewriter-prefix">&gt;&nbsp;</span>
+                        <span class="typewriter-text" id="typewriter"></span>
+                        <span class="cursor-blink">_</span>
+                    </div>
+
+                    <p class="hero-description" data-reveal="fade-up" data-delay="300">
+                        Computer Science Engineering undergrad at <strong>Swarnandhra College</strong> &amp; 
+                        <strong>NxtWave CCBP 4.0 Fellow</strong>. Engineering high-performance full-stack web applications, 
+                        AI-driven systems, and immersive modern digital experiences with clean scalable code.
+                    </p>
+
+                    <div class="hero-cta-group" data-reveal="fade-up" data-delay="400">
+                        <a href="#projects" class="btn btn-primary magnetic-btn">
+                            <span>Explore Projects</span>
+                            <i class="ri-arrow-right-up-line"></i>
+                        </a>
+                        <a href="#resume" class="btn btn-secondary magnetic-btn">
+                            <i class="ri-file-text-line"></i>
+                            <span>View Resume</span>
+                        </a>
+                        <button class="btn btn-glass magnetic-btn" id="copy-email-btn" title="Click to copy email">
+                            <i class="ri-file-copy-line"></i>
+                            <span>Copy Email</span>
+                            <div class="tooltip" id="email-tooltip">Copied to Clipboard!</div>
+                        </button>
+                    </div>
+
+                    <div class="hero-socials" data-reveal="fade-up" data-delay="500">
+                        <span class="social-label">Connect with me:</span>
+                        <div class="social-links">
+                            <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="GitHub">
+                                <i class="ri-github-fill"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/sai-kiran-ketha/" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="LinkedIn">
+                                <i class="ri-linkedin-box-fill"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="mailto:kethasaikiran123@gmail.com" class="social-pill" aria-label="Email">
+                                <i class="ri-mail-send-fill"></i>
+                                <span>Email</span>
+                            </a>
+                            <a href="tel:+917569785117" class="social-pill" aria-label="Phone">
+                                <i class="ri-phone-fill"></i>
+                                <span>+91 7569785117</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual" data-reveal="fade-left">
+                    <div class="hero-3d-card tilt-element" id="hero-card">
+                        <div class="card-glass-shine"></div>
+                        <div class="card-hologram">
+                            <div class="profile-avatar-circle">
+                                <div class="avatar-gradient-ring"></div>
+                                <div class="avatar-content">
+                                    <span class="avatar-initials">SK</span>
+                                </div>
+                                <div class="floating-badge badge-top-right">
+                                    <i class="ri-reactjs-line"></i>
+                                    <span>React.js</span>
+                                </div>
+                                <div class="floating-badge badge-bottom-left">
+                                    <i class="fa-brands fa-python"></i>
+                                    <span>Python</span>
+                                </div>
+                                <div class="floating-badge badge-mid-right">
+                                    <i class="ri-database-2-line"></i>
+                                    <span>SQL</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-info">
+                            <div class="card-header-tag">
+                                <span class="tag-pulse"></span>
+                                <span>ACTIVE FELLOW • CCBP 4.0</span>
+                            </div>
+                            <h3 class="card-name">Sai Kiran Ketha</h3>
+                            <p class="card-sub">Full Stack &amp; Software Developer</p>
+                            
+                            <div class="card-metrics-row">
+                                <div class="metric-item">
+                                    <span class="metric-val">10+</span>
+                                    <span class="metric-lbl">Certs</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-val">700+</span>
+                                    <span class="metric-lbl">Days</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-val">2028</span>
+                                    <span class="metric-lbl">Grad</span>
+                                </div>
+                            </div>
+                            
+                            <div class="card-footer-action">
+                                <a href="#contact" class="btn btn-sm btn-primary w-full">
+                                    <i class="ri-chat-smile-2-line"></i> Let's Collaborate
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <a href="#stats" class="scroll-down-indicator" aria-label="Scroll Down">
+                <span class="mouse-icon">
+                    <span class="mouse-wheel"></span>
+                </span>
+                <span class="scroll-text">Scroll to explore</span>
+                <i class="ri-arrow-down-double-line"></i>
+            </a>
+        </section>
+
+        <!-- ================= BENTO STATS & HIGHLIGHTS ================= -->
+        <section class="stats-section" id="stats">
+            <div class="container">
+                <div class="bento-grid">
+                    <div class="bento-card stat-card tilt-element" data-reveal="fade-up">
+                        <div class="stat-icon-wrapper neon-blue">
+                            <i class="ri-award-fill"></i>
+                        </div>
+                        <div class="stat-body">
+                            <div class="stat-number-wrap">
+                                <span class="counter" data-target="10">0</span>
+                                <span class="counter-suffix">+</span>
+                            </div>
+                            <h4 class="stat-title">Verified Certifications</h4>
+                            <p class="stat-desc">NxtWave CCBP 4.0 accredited certifications across Python, SQL &amp; Full Stack web.</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card stat-card tilt-element" data-reveal="fade-up" data-delay="100">
+                        <div class="stat-icon-wrapper neon-purple">
+                            <i class="ri-fire-fill"></i>
+                        </div>
+                        <div class="stat-body">
+                            <div class="stat-number-wrap">
+                                <span class="counter" data-target="700">0</span>
+                                <span class="counter-suffix">+</span>
+                            </div>
+                            <h4 class="stat-title">Continuous Learning Days</h4>
+                            <p class="stat-desc">Dedicated daily problem solving, data structures, and hands-on software building.</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card stat-card tilt-element" data-reveal="fade-up" data-delay="200">
+                        <div class="stat-icon-wrapper neon-cyan">
+                            <i class="ri-git-repository-line"></i>
+                        </div>
+                        <div class="stat-body">
+                            <div class="stat-number-wrap">
+                                <span class="counter" data-target="15">0</span>
+                                <span class="counter-suffix">+</span>
+                            </div>
+                            <h4 class="stat-title">Projects &amp; Repositories</h4>
+                            <p class="stat-desc">Production-grade web apps, REST APIs, hackathon solutions, and database engines.</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card stat-card tilt-element" data-reveal="fade-up" data-delay="300">
+                        <div class="stat-icon-wrapper neon-emerald">
+                            <i class="ri-graduation-cap-fill"></i>
+                        </div>
+                        <div class="stat-body">
+                            <div class="stat-number-wrap">
+                                <span class="counter" data-target="2028">0</span>
+                            </div>
+                            <h4 class="stat-title">B.Tech CSE Graduation</h4>
+                            <p class="stat-desc">Swarnandhra College of Engineering &amp; Technology (2024 - 2028 cohort).</p>
+                        </div>
+                    </div>
+
+                    <!-- Bento Featured Highlight: Currently Building -->
+                    <div class="bento-card highlight-card bento-span-2 tilt-element" data-reveal="fade-up" data-delay="150">
+                        <div class="highlight-header">
+                            <div class="live-indicator">
+                                <span class="ping-circle"></span>
+                                <span class="dot-circle"></span>
+                                <span>CURRENT STATUS &amp; FOCUS</span>
+                            </div>
+                            <span class="focus-tag">Q3 2026</span>
+                        </div>
+                        <div class="highlight-content">
+                            <h3>Building Scalable Web Architectures &amp; Preparing for SDE Internships</h3>
+                            <p>
+                                Actively refining advanced Full-Stack competencies in React, Node.js, and SQL backend engineering,
+                                participating in national hackathons (VisionX), and exploring high-efficiency WebGL / 3D web interfaces.
+                            </p>
+                            <div class="tech-pills-row">
+                                <span class="tech-pill"><i class="ri-reactjs-fill"></i> React 19</span>
+                                <span class="tech-pill"><i class="fa-brands fa-node-js"></i> Node.js &amp; Express</span>
+                                <span class="tech-pill"><i class="fa-brands fa-python"></i> Python &amp; Data Structures</span>
+                                <span class="tech-pill"><i class="ri-database-2-fill"></i> SQLite &amp; PostgreSQL</span>
+                                <span class="tech-pill"><i class="ri-box-3-fill"></i> Three.js / 3D UI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ABOUT ME SECTION ================= -->
+        <section class="about-section section-padding" id="about">
+            <div class="container">
+                <div class="section-header" data-reveal="fade-up">
+                    <div class="section-tag">
+                        <i class="ri-compass-3-line"></i>
+                        <span>DISCOVER MY JOURNEY</span>
+                    </div>
+                    <h2 class="section-title">About <span class="gradient-text">Who I Am</span></h2>
+                    <p class="section-subtitle">
+                        Passionate software developer, continuous learner, and problem solver with a deep enthusiasm for robust web engineering.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-card tilt-element" data-reveal="fade-up">
+                        <div class="about-card-icon">
+                            <i class="ri-book-open-fill"></i>
+                        </div>
+                        <h3>B.Tech Computer Science</h3>
+                        <p>
+                            Pursuing Bachelor of Technology in Computer Science Engineering at 
+                            <strong>Swarnandhra College of Engineering &amp; Technology</strong> (2024–2028). 
+                            Focusing on algorithms, data structures, database management, and operating systems.
+                        </p>
+                        <div class="card-badge">Academic Journey</div>
+                    </div>
+
+                    <div class="about-card tilt-element" data-reveal="fade-up" data-delay="100">
+                        <div class="about-card-icon">
+                            <i class="ri-rocket-2-fill"></i>
+                        </div>
+                        <h3>NxtWave CCBP 4.0 Fellow</h3>
+                        <p>
+                            Enrolled in the intensive CCBP 4.0 Transformation Program, mastering industry-aligned 
+                            full-stack web development through rigorous hands-on projects, code reviews, and modern engineering practices.
+                        </p>
+                        <div class="card-badge">Industry Training</div>
+                    </div>
+
+                    <div class="about-card tilt-element" data-reveal="fade-up" data-delay="200">
+                        <div class="about-card-icon">
+                            <i class="ri-terminal-box-fill"></i>
+                        </div>
+                        <h3>Passionate Problem Solver</h3>
+                        <p>
+                            Driven by curiosity to convert complex real-life challenges into clean, accessible digital products. 
+                            Active participant in hackathons like VisionX and always eager to learn next-gen tools.
+                        </p>
+                        <div class="card-badge">Engineering Mindset</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SKILLS MATRIX SECTION ================= -->
+        <section class="skills-section section-padding" id="skills">
+            <div class="container">
+                <div class="section-header" data-reveal="fade-up">
+                    <div class="section-tag">
+                        <i class="ri-cpu-line"></i>
+                        <span>TECHNICAL ARSENAL</span>
+                    </div>
+                    <h2 class="section-title">Skills &amp; <span class="gradient-text">Proficiencies</span></h2>
+                    <p class="section-subtitle">
+                        Core technical competencies honed through continuous coding, real-world projects, and NxtWave CCBP 4.0 intensive training.
+                    </p>
+                </div>
+
+                <!-- Skill Filter Tabs -->
+                <div class="filter-tabs-wrapper" data-reveal="fade-up">
+                    <button class="filter-tab active" data-filter="all">All Technologies</button>
+                    <button class="filter-tab" data-filter="frontend">Frontend &amp; UI</button>
+                    <button class="filter-tab" data-filter="backend">Backend &amp; Data</button>
+                    <button class="filter-tab" data-filter="tools">Tools &amp; Workflow</button>
+                </div>
+
+                <div class="skills-grid" id="skills-container">
+                    <!-- Python -->
+                    <div class="skill-item tilt-element" data-category="backend" data-reveal="fade-up">
+                        <div class="skill-head">
+                            <div class="skill-icon python-color"><i class="fa-brands fa-python"></i></div>
+                            <div class="skill-meta">
+                                <h4>Python</h4>
+                                <span>Advanced &amp; Problem Solving</span>
+                            </div>
+                            <span class="skill-percentage">95%</span>
+                        </div>
+                        <div class="skill-progress-bar">
+                            <div class="skill-progress-fill" style="width: 95%;"></div>
+                        </div>
+                        <div class="skill-tags">
+                            <span>OOP</span>
+                            <span>Data Structures</span>
+                            <span>Automation</span>
+                        </div>
+                    </div>
+
+                    <!-- SQL -->
+                    <div class="skill-item tilt-element" data-category="backend" data-reveal="fade-up" data-delay="50">
+                        <div class="skill-head">
+                            <div class="skill-icon sql-color"><i class="ri-database-2-line"></i></div>
+                            <div class="skill-meta">
+                                <h4>SQL &amp; Relational DBs</h4>
+                                <span>Queries &amp; Schema Design</span>
+                            </div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-progress-bar">
+                            <div class="skill-progress-fill" style="width: 90%;"></div>
+                        </div>
+                        <div class="skill-tags">
+                            <span>SQLite</span>
+                            <span>Joins &amp; Aggregations</span>
+                            <span>Indexing</span>
+                        </div>
+                    </div>
+
+                    <!-- JavaScript -->
+                    <div class="skill-item tilt-element" data-category="frontend" data-reveal="fade-up" data-delay="100">
+                        <div class="skill-head">
+                            <div class="skill-icon js-color"><i class="fa-brands fa-js"></i></div>
+                            <div class="skill-meta">
+                                <h4>JavaScript (ES6+)</h4>
+                                <span>Modern Asynchronous JS</span>
+                            </div>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="skill-progress-bar">
+                            <div class="skill-progress-fill" style="width: 88%;"></div>
+                        </div>
+                        <div class="skill-tags">
+                            <span>DOM Manipulation</span>
+                            <span>Async/Await</span>
+                            <span>Fetch API</span>
+                        </div>
+                    </div>
+
+                    <!-- React.js -->
+                    <div class="skill-item tilt-element" data-category="frontend" data-reveal="fade-up" data-delay="150">
+                        <div class="skill-head">
+                            <div class="skill-icon react-color"><i class="ri-reactjs-line"></i></div>
+                            <div class="skill-meta">
+                                <h4>React.js</h4>
+                                <span>Component Architecture</span>
+                            </div>
+                            <span class="skill-percentage">82%</span>
+                        </div>
+                        <div class="skill-progress-bar">
+                            <div class="skill-progress-fill" style="width: 82%;"></div>
+                        </div>
+                        <div class="skill-tags">
+                            <span>Hooks &amp; State</span>
+                            <span>Routing</span>
+                            <span>Context API</span>
+                        </div>
+                    </div>
+
+                    <!-- HTML5 & CSS3 -->
+                    <div class="skill-item tilt-element" data-category="frontend" data-reveal="fade-up" data-delay="200">
+                        <div class="skill-head">
+                            <div class="skill-icon html-color"><i class="ri-html5-fill"></i></div>
+                            <div class="skill-meta">
+                                <h4>HTML5 &amp; CSS3</h4>
+                                <span>Semantic &amp; Responsive UI</span>
+                            </div>
+                            <span class="skill-percentage">95%</span>
+                        </div>
+                        <div class="skill-progress-bar">
+                            <div class="skill-progress-fill" style="width: 95%;"></div>
+                        </div>
+                        <div class="skill-tags">
+                            <span>Flexbox &amp; Grid</span>
+                            <span>Animations</span>
+                            <span>Accessibility</span>
+                        </div>
+                    </div>
+
+                    <!-- Node.js & Express -->
+                    <div class="skill-item tilt-element" data-category="backend" data-reveal="fade-up" data-delay="250">
+                        <div class="skill-head">
+                            <div class="skill-icon node-color"><i class="fa-brands fa-node-js"></i></div>
+                            <div class="skill-meta">
+                                <h4>Node.js &amp; Express</h4>
+                                <span>REST API Engineering</span>
+                            </div>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-progress-bar">
+                            <div class="skill-progress-fill" style="width: 80%;"></div>
+                        </div>
+                        <div class="skill-tags">
+                            <span>Middleware</span>
+                            <span>JWT Auth</span>
+                            <span>RESTful APIs</span>
+                        </div>
+                    </div>
+
+                    <!-- Git & GitHub -->
+                    <div class="skill-item tilt-element" data-category="tools" data-reveal="fade-up" data-delay="300">
+                        <div class="skill-head">
+                            <div class="skill-icon git-color"><i class="fa-brands fa-git-alt"></i></div>
+                            <div class="skill-meta">
+                                <h4>Git &amp; GitHub</h4>
+                                <span>Version Control &amp; Collab</span>
+                            </div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-progress-bar">
+                            <div class="skill-progress-fill" style="width: 90%;"></div>
+                        </div>
+                        <div class="skill-tags">
+                            <span>Branching</span>
+                            <span>PRs &amp; Merges</span>
+                            <span>Open Source</span>
+                        </div>
+                    </div>
+
+                    <!-- Three.js & WebGL -->
+                    <div class="skill-item tilt-element" data-category="frontend" data-reveal="fade-up" data-delay="350">
+                        <div class="skill-head">
+                            <div class="skill-icon three-color"><i class="ri-box-3-line"></i></div>
+                            <div class="skill-meta">
+                                <h4>Three.js &amp; WebGL</h4>
+                                <span>3D Interactive Interfaces</span>
+                            </div>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-progress-bar">
+                            <div class="skill-progress-fill" style="width: 75%;"></div>
+                        </div>
+                        <div class="skill-tags">
+                            <span>3D Meshes</span>
+                            <span>Shaders &amp; Lights</span>
+                            <span>60fps Canvas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FEATURED PROJECTS SECTION ================= -->
+        <section class="projects-section section-padding" id="projects">
+            <div class="container">
+                <div class="section-header" data-reveal="fade-up">
+                    <div class="section-tag">
+                        <i class="ri-code-s-slash-line"></i>
+                        <span>PORTFOLIO SHOWCASE</span>
+                    </div>
+                    <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+                    <p class="section-subtitle">
+                        Interactive web applications, AI-assisted tools, and full-stack platforms engineered with high standards of design and functionality.
+                    </p>
+                </div>
+
+                <!-- Project Filter Tabs -->
+                <div class="project-filter-tabs" data-reveal="fade-up">
+                    <button class="project-filter-btn active" data-pfilter="all">All Projects (4)</button>
+                    <button class="project-filter-btn" data-pfilter="fullstack">Full Stack</button>
+                    <button class="project-filter-btn" data-pfilter="ai">AI &amp; Vision</button>
+                    <button class="project-filter-btn" data-pfilter="frontend">Frontend / 3D</button>
+                </div>
+
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Project 1: Smart Attendance System -->
+                    <div class="project-card tilt-element" data-category="fullstack" data-reveal="fade-up">
+                        <div class="project-image-wrapper">
+                            <img src="assets/smart_attendance.jpg" alt="Smart Attendance System Dashboard" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <button class="btn btn-sm btn-primary open-case-study" data-project="smart-attendance">
+                                    <i class="ri-eye-line"></i> View Case Study
+                                </button>
+                            </div>
+                            <div class="project-badge">Full Stack • Core Project</div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-tags">
+                                <span>Python</span>
+                                <span>React</span>
+                                <span>SQL</span>
+                                <span>Auth</span>
+                            </div>
+                            <h3 class="project-title">Smart Attendance System</h3>
+                            <p class="project-description">
+                                A comprehensive, secure attendance management platform featuring biometric/face recognition authentication, 
+                                real-time analytics dashboard, student check-in timeline, and role-based faculty permissions.
+                            </p>
+                            <div class="project-actions">
+                                <button class="btn-text-link open-case-study" data-project="smart-attendance">
+                                    <span>Details &amp; Architecture</span>
+                                    <i class="ri-arrow-right-line"></i>
+                                </button>
+                                <div class="project-links">
+                                    <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer" class="icon-link" title="Source Code">
+                                        <i class="ri-github-line"></i>
+                                    </a>
+                                    <a href="#contact" class="icon-link" title="Request Live Demo">
+                                        <i class="ri-external-link-line"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: VisionX AI Hackathon Project -->
+                    <div class="project-card tilt-element" data-category="ai" data-reveal="fade-up" data-delay="100">
+                        <div class="project-image-wrapper">
+                            <img src="assets/visionx_ai.jpg" alt="VisionX AI Hackathon Project" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <button class="btn btn-sm btn-primary open-case-study" data-project="visionx-ai">
+                                    <i class="ri-eye-line"></i> View Case Study
+                                </button>
+                            </div>
+                            <div class="project-badge highlight-badge">Hackathon Innovation</div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-tags">
+                                <span>AI / Vision</span>
+                                <span>Python</span>
+                                <span>OpenCV</span>
+                                <span>Dashboard</span>
+                            </div>
+                            <h3 class="project-title">VisionX AI Solution</h3>
+                            <p class="project-description">
+                                AI-powered computer vision &amp; surveillance analytics system designed for real-world automated object detection, 
+                                movement telemetry, anomaly alerts, and multi-camera live video stream processing.
+                            </p>
+                            <div class="project-actions">
+                                <button class="btn-text-link open-case-study" data-project="visionx-ai">
+                                    <span>Details &amp; Architecture</span>
+                                    <i class="ri-arrow-right-line"></i>
+                                </button>
+                                <div class="project-links">
+                                    <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer" class="icon-link" title="Source Code">
+                                        <i class="ri-github-line"></i>
+                                    </a>
+                                    <a href="#contact" class="icon-link" title="Live Presentation">
+                                        <i class="ri-external-link-line"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: CCBP Full Stack Web Suite -->
+                    <div class="project-card tilt-element" data-category="fullstack" data-reveal="fade-up" data-delay="200">
+                        <div class="project-image-wrapper">
+                            <img src="assets/ccbp_fullstack.jpg" alt="CCBP Full Stack Applications" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <button class="btn btn-sm btn-primary open-case-study" data-project="ccbp-suite">
+                                    <i class="ri-eye-line"></i> View Case Study
+                                </button>
+                            </div>
+                            <div class="project-badge">NxtWave CCBP 4.0</div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-tags">
+                                <span>Node.js</span>
+                                <span>Express</span>
+                                <span>SQLite</span>
+                                <span>REST APIs</span>
+                            </div>
+                            <h3 class="project-title">CCBP Full-Stack Web Suite</h3>
+                            <p class="project-description">
+                                An integrated ecosystem of web applications developed during CCBP 4.0 training, 
+                                including REST API servers, user authentication flows, dynamic database queries, and modular UI dashboards.
+                            </p>
+                            <div class="project-actions">
+                                <button class="btn-text-link open-case-study" data-project="ccbp-suite">
+                                    <span>Details &amp; Architecture</span>
+                                    <i class="ri-arrow-right-line"></i>
+                                </button>
+                                <div class="project-links">
+                                    <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer" class="icon-link" title="Source Code">
+                                        <i class="ri-github-line"></i>
+                                    </a>
+                                    <a href="https://kethasaikiran.ccbp.tech" target="_blank" rel="noopener noreferrer" class="icon-link" title="CCBP Live Domain">
+                                        <i class="ri-external-link-line"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: 3D Developer Portfolio Universe -->
+                    <div class="project-card tilt-element" data-category="frontend" data-reveal="fade-up" data-delay="300">
+                        <div class="project-image-wrapper">
+                            <img src="assets/portfolio_3d.jpg" alt="3D Futuristic Developer Portfolio" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <button class="btn btn-sm btn-primary open-case-study" data-project="portfolio-3d">
+                                    <i class="ri-eye-line"></i> View Case Study
+                                </button>
+                            </div>
+                            <div class="project-badge neon-badge">WebGL &amp; 3D Design</div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-tags">
+                                <span>Three.js</span>
+                                <span>WebGL</span>
+                                <span>Vanilla JS</span>
+                                <span>Glassmorphism</span>
+                            </div>
+                            <h3 class="project-title">Next-Gen 3D Cyber Portfolio</h3>
+                            <p class="project-description">
+                                A high-performance 60fps developer portfolio featuring interactive Three.js 3D geometric meshes, 
+                                real-time perspective card tilt, customizable themes, dynamic typing animations, and full mobile optimization.
+                            </p>
+                            <div class="project-actions">
+                                <button class="btn-text-link open-case-study" data-project="portfolio-3d">
+                                    <span>Details &amp; Architecture</span>
+                                    <i class="ri-arrow-right-line"></i>
+                                </button>
+                                <div class="project-links">
+                                    <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer" class="icon-link" title="Source Code">
+                                        <i class="ri-github-line"></i>
+                                    </a>
+                                    <a href="#hero" class="icon-link" title="View Current">
+                                        <i class="ri-sparkling-line"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= INTERACTIVE RESUME SECTION ================= -->
+        <section class="resume-section section-padding" id="resume">
+            <div class="container">
+                <div class="section-header" data-reveal="fade-up">
+                    <div class="section-tag">
+                        <i class="ri-file-user-line"></i>
+                        <span>CURRICULUM VITAE</span>
+                    </div>
+                    <h2 class="section-title">Interactive <span class="gradient-text">Resume</span></h2>
+                    <p class="section-subtitle">
+                        An overview of my academic foundation, hands-on software development experience, industry certifications, and key technical capabilities.
+                    </p>
+                </div>
+
+                <div class="resume-wrapper">
+                    <!-- Resume Controls -->
+                    <div class="resume-action-bar" data-reveal="fade-up">
+                        <div class="resume-nav-tabs">
+                            <button class="resume-tab-btn active" data-tab="education">
+                                <i class="ri-graduation-cap-line"></i> Education
+                            </button>
+                            <button class="resume-tab-btn" data-tab="experience">
+                                <i class="ri-briefcase-4-line"></i> Experience &amp; Fellowship
+                            </button>
+                            <button class="resume-tab-btn" data-tab="certifications">
+                                <i class="ri-award-line"></i> Certifications (10+)
+                            </button>
+                            <button class="resume-tab-btn" data-tab="competencies">
+                                <i class="ri-shield-star-line"></i> Core Competencies
+                            </button>
+                        </div>
+
+                        <div class="resume-download-actions">
+                            <button class="btn btn-secondary btn-sm" id="view-resume-modal-btn">
+                                <i class="ri-eye-line"></i> View Full Resume
+                            </button>
+                            <a href="#contact" class="btn btn-primary btn-sm" id="download-cv-trigger">
+                                <i class="ri-download-2-line"></i> Download CV (PDF)
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Resume Tab Content Area -->
+                    <div class="resume-tab-content active" id="tab-education" data-reveal="fade-up">
+                        <div class="resume-card">
+                            <div class="resume-card-header">
+                                <div class="resume-title-group">
+                                    <h3>Bachelor of Technology (B.Tech) - Computer Science &amp; Engineering</h3>
+                                    <h4 class="company-name">Swarnandhra College of Engineering &amp; Technology</h4>
+                                </div>
+                                <span class="resume-date-badge">2024 – 2028 (Expected)</span>
+                            </div>
+                            <div class="resume-card-body">
+                                <p><strong>Key Focus Areas:</strong> Object Oriented Programming, Data Structures &amp; Algorithms, Database Management Systems, Computer Networks, Operating Systems, Web Technologies.</p>
+                                <ul class="resume-bullets">
+                                    <li>Maintaining strong academic standing with active involvement in technical coding clubs and collegiate hackathons.</li>
+                                    <li>Collaborating on team engineering projects and leading web dev study groups on campus.</li>
+                                    <li>Building algorithmic solutions in Python and participating in competitive programming challenges.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="resume-card">
+                            <div class="resume-card-header">
+                                <div class="resume-title-group">
+                                    <h3>Intermediate &amp; Secondary Education</h3>
+                                    <h4 class="company-name">State Board of Intermediate &amp; Secondary Education</h4>
+                                </div>
+                                <span class="resume-date-badge">Completed with High Distinction</span>
+                            </div>
+                            <div class="resume-card-body">
+                                <p>Core subjects: Mathematics, Physics, Chemistry, and Computer Basics. Built solid fundamentals in analytical logic and quantitative problem solving.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resume-tab-content" id="tab-experience">
+                        <div class="resume-card">
+                            <div class="resume-card-header">
+                                <div class="resume-title-group">
+                                    <h3>Full Stack Developer Trainee &amp; Fellow</h3>
+                                    <h4 class="company-name">NxtWave CCBP 4.0 Academy</h4>
+                                </div>
+                                <span class="resume-date-badge">2024 – Present</span>
+                            </div>
+                            <div class="resume-card-body">
+                                <ul class="resume-bullets">
+                                    <li>Completed over <strong>700+ learning days</strong> of structured software engineering curricula, mastering Python, SQL, Modern JavaScript, React.js, and Node.js.</li>
+                                    <li>Engineered dynamic and scalable full-stack web applications with end-to-end REST API integration and database persistence.</li>
+                                    <li>Implemented responsive, accessible UI layouts adhering to industry UI/UX guidelines and modern cross-browser standards.</li>
+                                    <li>Participated in regular code reviews, peer programming sessions, and technical problem-solving assessments.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="resume-card">
+                            <div class="resume-card-header">
+                                <div class="resume-title-group">
+                                    <h3>Hackathon Contender &amp; AI Solution Architect</h3>
+                                    <h4 class="company-name">VisionX Innovation Challenge</h4>
+                                </div>
+                                <span class="resume-date-badge">2026</span>
+                            </div>
+                            <div class="resume-card-body">
+                                <ul class="resume-bullets">
+                                    <li>Designed and engineered a functional prototype for automated computer vision detection using Python and neural network APIs.</li>
+                                    <li>Created an interactive analytics monitoring dashboard allowing operators to track detection telemetry in real-time.</li>
+                                    <li>Presented architecture, scalability tradeoffs, and technical roadmap to the hackathon judging panel.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resume-tab-content" id="tab-certifications">
+                        <div class="certs-grid">
+                            <div class="cert-item">
+                                <div class="cert-icon"><i class="ri-shield-check-fill"></i></div>
+                                <div class="cert-info">
+                                    <h4>Programming Foundations with Python</h4>
+                                    <p>NxtWave CCBP 4.0 Certification • Advanced OOP, Algorithms &amp; Logic</p>
+                                </div>
+                                <span class="cert-status">Verified</span>
+                            </div>
+
+                            <div class="cert-item">
+                                <div class="cert-icon"><i class="ri-database-2-fill"></i></div>
+                                <div class="cert-info">
+                                    <h4>Database Management &amp; SQL</h4>
+                                    <p>NxtWave CCBP 4.0 Certification • Relational Schemas, Complex Queries</p>
+                                </div>
+                                <span class="cert-status">Verified</span>
+                            </div>
+
+                            <div class="cert-item">
+                                <div class="cert-icon"><i class="ri-layout-masonry-fill"></i></div>
+                                <div class="cert-info">
+                                    <h4>Responsive Web Design &amp; CSS3</h4>
+                                    <p>NxtWave CCBP 4.0 Certification • Flexbox, Grid, Mobile-First Design</p>
+                                </div>
+                                <span class="cert-status">Verified</span>
+                            </div>
+
+                            <div class="cert-item">
+                                <div class="cert-icon"><i class="ri-javascript-fill"></i></div>
+                                <div class="cert-info">
+                                    <h4>Dynamic Web Applications &amp; JavaScript</h4>
+                                    <p>NxtWave CCBP 4.0 Certification • ES6+, Async JS &amp; DOM Manipulation</p>
+                                </div>
+                                <span class="cert-status">Verified</span>
+                            </div>
+
+                            <div class="cert-item">
+                                <div class="cert-icon"><i class="ri-reactjs-fill"></i></div>
+                                <div class="cert-info">
+                                    <h4>React.js Frontend Architecture</h4>
+                                    <p>NxtWave CCBP 4.0 Certification • Components, State Management &amp; SPAs</p>
+                                </div>
+                                <span class="cert-status">Verified</span>
+                            </div>
+
+                            <div class="cert-item">
+                                <div class="cert-icon"><i class="ri-server-fill"></i></div>
+                                <div class="cert-info">
+                                    <h4>Node.js, Express &amp; RESTful APIs</h4>
+                                    <p>NxtWave CCBP 4.0 Certification • Server Architecture &amp; Middleware</p>
+                                </div>
+                                <span class="cert-status">Verified</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resume-tab-content" id="tab-competencies">
+                        <div class="competencies-grid">
+                            <div class="comp-box">
+                                <h4><i class="ri-code-box-line"></i> Full-Stack Development</h4>
+                                <p>End-to-end web engineering from responsive frontend interfaces (React, HTML5, CSS3) to robust backend REST APIs (Node.js, Express, Python).</p>
+                            </div>
+                            <div class="comp-box">
+                                <h4><i class="ri-database-line"></i> Database Systems</h4>
+                                <p>Schema modeling, normalization, indexing, relational queries, transaction integrity in SQLite, PostgreSQL, and SQL databases.</p>
+                            </div>
+                            <div class="comp-box">
+                                <h4><i class="ri-cpu-line"></i> Data Structures &amp; Problem Solving</h4>
+                                <p>Analytical problem decomposition, array manipulation, tree/graph logic, searching &amp; sorting optimizations.</p>
+                            </div>
+                            <div class="comp-box">
+                                <h4><i class="ri-git-branch-line"></i> Dev Workflow &amp; Best Practices</h4>
+                                <p>Git version control, clean modular code, semantic SEO, API security &amp; JWT authentication, performance optimization.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= JOURNEY TIMELINE SECTION ================= -->
+        <section class="timeline-section section-padding" id="timeline">
+            <div class="container">
+                <div class="section-header" data-reveal="fade-up">
+                    <div class="section-tag">
+                        <i class="ri-time-line"></i>
+                        <span>ROADMAP &amp; MILESTONES</span>
+                    </div>
+                    <h2 class="section-title">My <span class="gradient-text">Journey</span></h2>
+                    <p class="section-subtitle">
+                        Key career milestones, achievements, and future targets in my evolution as a software engineer.
+                    </p>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+
+                    <!-- Item 1: 2024 -->
+                    <div class="timeline-item" data-reveal="fade-right">
+                        <div class="timeline-marker">
+                            <span class="marker-dot"></span>
+                        </div>
+                        <div class="timeline-card tilt-element">
+                            <div class="timeline-year">2024</div>
+                            <h3>Foundations &amp; CCBP 4.0 Induction</h3>
+                            <p>
+                                Commenced Bachelor of Technology in Computer Science &amp; Engineering at Swarnandhra College. 
+                                Selected for the prestigious NxtWave CCBP 4.0 fellowship and mastered Python programming and SQL fundamentals.
+                            </p>
+                            <span class="timeline-tag">Foundations</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: 2025 -->
+                    <div class="timeline-item" data-reveal="fade-left">
+                        <div class="timeline-marker">
+                            <span class="marker-dot"></span>
+                        </div>
+                        <div class="timeline-card tilt-element">
+                            <div class="timeline-year">2025</div>
+                            <h3>Full-Stack Mastery &amp; 10+ Certifications</h3>
+                            <p>
+                                Reached 500+ learning days milestone. Built the Smart Attendance System, mastered JavaScript ES6+, 
+                                React.js frontend development, and Node.js REST API servers. Earned 10+ accredited technical certificates.
+                            </p>
+                            <span class="timeline-tag">Full-Stack Development</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: 2026 -->
+                    <div class="timeline-item current-milestone" data-reveal="fade-right">
+                        <div class="timeline-marker">
+                            <span class="marker-dot pulsing"></span>
+                        </div>
+                        <div class="timeline-card tilt-element">
+                            <div class="timeline-year">2026 • Present</div>
+                            <h3>VisionX Hackathons &amp; SDE Internships</h3>
+                            <p>
+                                Built the VisionX AI platform for the national hackathon. Reached 700+ learning days. 
+                                Actively seeking Software Development Engineer (SDE) and Full Stack internships to deliver impactful industry value.
+                            </p>
+                            <span class="timeline-tag active-tag">Current Milestone</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: 2028 -->
+                    <div class="timeline-item" data-reveal="fade-left">
+                        <div class="timeline-marker">
+                            <span class="marker-dot"></span>
+                        </div>
+                        <div class="timeline-card tilt-element">
+                            <div class="timeline-year">2028</div>
+                            <h3>B.Tech CSE Graduation &amp; Beyond</h3>
+                            <p>
+                                Graduation from Swarnandhra College of Engineering &amp; Technology. 
+                                Transitioning into high-impact full-time Software Engineering roles, building scalable distributed systems and cutting-edge products.
+                            </p>
+                            <span class="timeline-tag">Future Goal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTACT SECTION ================= -->
+        <section class="contact-section section-padding" id="contact">
+            <div class="container">
+                <div class="section-header" data-reveal="fade-up">
+                    <div class="section-tag">
+                        <i class="ri-chat-voice-line"></i>
+                        <span>GET IN TOUCH</span>
+                    </div>
+                    <h2 class="section-title">Let's Build <span class="gradient-text">Something Amazing</span></h2>
+                    <p class="section-subtitle">
+                        Interested in hiring me for an internship, collaborating on a hackathon, or discussing a project? Drop a message below!
+                    </p>
+                </div>
+
+                <div class="contact-layout">
+                    <!-- Contact Cards -->
+                    <div class="contact-sidebar" data-reveal="fade-right">
+                        <div class="contact-info-card tilt-element">
+                            <div class="info-card-icon neon-blue">
+                                <i class="ri-mail-send-fill"></i>
+                            </div>
+                            <div class="info-card-content">
+                                <h4>Email Me</h4>
+                                <a href="mailto:kethasaikiran123@gmail.com" class="contact-link">kethasaikiran123@gmail.com</a>
+                                <p class="info-sub">Fastest response within 24 hours</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-card tilt-element">
+                            <div class="info-card-icon neon-purple">
+                                <i class="ri-phone-fill"></i>
+                            </div>
+                            <div class="info-card-content">
+                                <h4>Call / WhatsApp</h4>
+                                <a href="tel:+917569785117" class="contact-link">+91 7569785117</a>
+                                <p class="info-sub">Mon – Sat, 9:00 AM – 8:00 PM IST</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-card tilt-element">
+                            <div class="info-card-icon neon-cyan">
+                                <i class="ri-map-pin-2-fill"></i>
+                            </div>
+                            <div class="info-card-content">
+                                <h4>Location</h4>
+                                <span class="contact-text">Andhra Pradesh, India</span>
+                                <p class="info-sub">Open to Remote &amp; On-Site Relocation</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-socials-box">
+                            <h4>Direct Social Profiles</h4>
+                            <div class="social-btn-grid">
+                                <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer" class="social-box-btn">
+                                    <i class="ri-github-fill"></i> GitHub
+                                </a>
+                                <a href="https://www.linkedin.com/in/sai-kiran-ketha/" target="_blank" rel="noopener noreferrer" class="social-box-btn">
+                                    <i class="ri-linkedin-fill"></i> LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Contact Form -->
+                    <div class="contact-form-wrapper tilt-element" data-reveal="fade-left">
+                        <!-- Quick Preset Subject Pills -->
+                        <div class="form-presets">
+                            <span class="preset-label">Quick Intent:</span>
+                            <div class="preset-pills">
+                                <button type="button" class="preset-pill active" data-subject="Software Engineering Internship Opportunity">💼 Internship</button>
+                                <button type="button" class="preset-pill" data-subject="Hackathon Collaboration &amp; Teaming">🚀 Hackathon</button>
+                                <button type="button" class="preset-pill" data-subject="Freelance / Web Development Project">💻 Web Project</button>
+                                <button type="button" class="preset-pill" data-subject="General Inquiry &amp; Networking">👋 Just Saying Hi</button>
+                            </div>
+                        </div>
+
+                        <form id="contact-form" class="contact-form" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contact-name">Your Name <span class="required">*</span></label>
+                                    <div class="input-wrap">
+                                        <i class="ri-user-line"></i>
+                                        <input type="text" id="contact-name" name="name" placeholder="e.g. Alex Johnson" required>
+                                    </div>
+                                    <span class="form-error" id="name-error">Please enter your name</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="contact-email">Your Email <span class="required">*</span></label>
+                                    <div class="input-wrap">
+                                        <i class="ri-mail-line"></i>
+                                        <input type="email" id="contact-email" name="email" placeholder="e.g. alex@example.com" required>
+                                    </div>
+                                    <span class="form-error" id="email-error">Please enter a valid email address</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-subject">Subject <span class="required">*</span></label>
+                                <div class="input-wrap">
+                                    <i class="ri-edit-line"></i>
+                                    <input type="text" id="contact-subject" name="subject" value="Software Engineering Internship Opportunity" required>
+                                </div>
+                                <span class="form-error" id="subject-error">Please provide a subject</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-message">Your Message <span class="required">*</span></label>
+                                <div class="input-wrap textarea-wrap">
+                                    <i class="ri-chat-4-line"></i>
+                                    <textarea id="contact-message" name="message" rows="5" placeholder="Tell me about your team, role, or project..." required></textarea>
+                                </div>
+                                <span class="form-error" id="message-error">Please write a message</span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-submit magnetic-btn" id="submit-btn">
+                                <span class="btn-text">Send Message</span>
+                                <i class="ri-send-plane-fill btn-icon"></i>
+                                <div class="spinner" id="form-spinner"></div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <span class="logo-initials">SK</span>
+                    <span class="footer-title">Sai Kiran Ketha</span>
+                </div>
+                <p class="footer-tagline">
+                    Full Stack Developer • B.Tech CSE Undergrad • NxtWave CCBP 4.0 Fellow
+                </p>
+            </div>
+
+            <div class="footer-center">
+                <ul class="footer-nav">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-right">
+                <p class="copyright-text">
+                    &copy; <span id="current-year">2026</span> Sai Kiran Ketha. All rights reserved.
+                </p>
+                <div class="footer-socials">
+                    <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="ri-github-line"></i></a>
+                    <a href="https://www.linkedin.com/in/sai-kiran-ketha/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ri-linkedin-line"></i></a>
+                    <a href="mailto:kethasaikiran123@gmail.com" aria-label="Email"><i class="ri-mail-line"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top floating button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+
+    <!-- ================= CASE STUDY MODAL ================= -->
+    <div class="modal-overlay" id="project-modal" aria-hidden="true" role="dialog">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="modal-close" aria-label="Close modal">
+                <i class="ri-close-line"></i>
+            </button>
+            <div class="modal-body" id="modal-body">
+                <!-- Dynamically populated via app.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= RESUME VIEW MODAL ================= -->
+    <div class="modal-overlay" id="resume-modal" aria-hidden="true" role="dialog">
+        <div class="modal-card resume-modal-card">
+            <div class="modal-header-actions">
+                <h3>Full Curriculum Vitae</h3>
+                <div class="header-btns">
+                    <button class="btn btn-sm btn-secondary" onclick="window.print()">
+                        <i class="ri-printer-line"></i> Print Resume
+                    </button>
+                    <button class="modal-close-btn resume-modal-close" id="resume-modal-close" aria-label="Close modal">
+                        <i class="ri-close-line"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="resume-document" id="printable-resume">
+                <!-- Formatted resume sheet -->
+                <div class="resume-doc-header">
+                    <h2>Sai Kiran Ketha</h2>
+                    <p class="resume-doc-subtitle">Full Stack Developer &bull; Computer Science Engineering Undergrad</p>
+                    <div class="resume-doc-contacts">
+                        <span><i class="ri-mail-line"></i> kethasaikiran123@gmail.com</span>
+                        <span><i class="ri-phone-line"></i> +91 7569785117</span>
+                        <span><i class="ri-map-pin-line"></i> Andhra Pradesh, India</span>
+                        <span><i class="ri-linkedin-box-line"></i> linkedin.com/in/sai-kiran-ketha</span>
+                        <span><i class="ri-github-line"></i> github.com/saikiranketha</span>
+                    </div>
+                </div>
+
+                <div class="resume-doc-section">
+                    <h4 class="doc-sec-title">EDUCATION</h4>
+                    <div class="doc-item">
+                        <div class="doc-item-row">
+                            <strong>Bachelor of Technology (B.Tech) in Computer Science &amp; Engineering</strong>
+                            <span>2024 – 2028</span>
+                        </div>
+                        <p class="doc-institute">Swarnandhra College of Engineering &amp; Technology</p>
+                        <p class="doc-details">Relevant Coursework: Data Structures, Object-Oriented Programming with Python, Database Management Systems, Web Technologies.</p>
+                    </div>
+                </div>
+
+                <div class="resume-doc-section">
+                    <h4 class="doc-sec-title">TECHNICAL SKILLS</h4>
+                    <p><strong>Languages:</strong> Python, SQL, JavaScript (ES6+), HTML5, CSS3</p>
+                    <p><strong>Frontend:</strong> React.js, Responsive Web Design, Flexbox/Grid, Three.js WebGL</p>
+                    <p><strong>Backend &amp; DB:</strong> Node.js, Express.js, SQLite, RESTful APIs, JWT Authentication</p>
+                    <p><strong>Tools:</strong> Git, GitHub, VS Code, Postman, Linux Command Line, NxtWave CCBP 4.0</p>
+                </div>
+
+                <div class="resume-doc-section">
+                    <h4 class="doc-sec-title">FEATURED PROJECTS</h4>
+                    <div class="doc-item">
+                        <div class="doc-item-row">
+                            <strong>Smart Attendance System</strong>
+                            <span>Full Stack &bull; Python, React, SQL</span>
+                        </div>
+                        <p class="doc-details">Built a secure biometric attendance tracking system with role-based auth, student logs, analytics dashboard, and automated status calculation.</p>
+                    </div>
+
+                    <div class="doc-item">
+                        <div class="doc-item-row">
+                            <strong>VisionX AI Solution</strong>
+                            <span>Computer Vision &bull; Python, OpenCV, Dashboard</span>
+                        </div>
+                        <p class="doc-details">Engineered an AI-driven vision analysis prototype for object tracking and security monitoring with real-time performance telemetry.</p>
+                    </div>
+
+                    <div class="doc-item">
+                        <div class="doc-item-row">
+                            <strong>CCBP 4.0 Web Application Suite</strong>
+                            <span>Full Stack &bull; React, Node.js, SQLite</span>
+                        </div>
+                        <p class="doc-details">Developed production-level web applications with seamless REST API routing, persistent relational database transactions, and responsive modern UIs.</p>
+                    </div>
+                </div>
+
+                <div class="resume-doc-section">
+                    <h4 class="doc-sec-title">TRAINING &amp; CERTIFICATIONS</h4>
+                    <ul class="doc-list">
+                        <li><strong>NxtWave CCBP 4.0 Fellow:</strong> 700+ days of intensive full-stack development, Python OOP, SQL, and modern JavaScript.</li>
+                        <li><strong>10+ Industry Certifications:</strong> Certified in Python, SQL, Responsive Web Design, React.js, and Node.js.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Element -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+</body>
+
+</html>
