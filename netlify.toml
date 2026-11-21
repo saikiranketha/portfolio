@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/resume"
+  to = "https://my-resume-pdf.vercel.app/Resume.pdf"
+  status = 200
+  force = true
