@@ -16,7 +16,8 @@
     <meta property="og:title" content="Sai Kiran Ketha | Full Stack Developer Portfolio">
     <meta property="og:description"
         content="Explore the interactive 3D portfolio, projects, skills, and resume of Sai Kiran Ketha.">
-    <meta property="og:image" content="assets/portfolio_3d.jpg">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,9 +26,10 @@
         href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
-    <!-- Remix Icons & FontAwesome -->
+    <!-- Remix Icons, FontAwesome & Devicons -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
     <!-- Libraries: Three.js, GSAP, Canvas Confetti -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -35,7 +37,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
-    <!-- Stylesheet -->
+    <!-- Stylesheet (Compatible with CCBP index.css or style.css) -->
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -82,26 +85,31 @@
 
             <nav class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
-                    <li><a href="#hero" class="nav-link active"><i class="ri-home-4-line"></i> <span>Home</span></a></li>
+                    <li><a href="#hero" class="nav-link active"><i class="ri-home-4-line"></i> <span>Home</span></a>
+                    </li>
                     <li><a href="#about" class="nav-link"><i class="ri-user-3-line"></i> <span>About</span></a></li>
                     <li><a href="#skills" class="nav-link"><i class="ri-code-box-line"></i> <span>Skills</span></a></li>
-                    <li><a href="#projects" class="nav-link"><i class="ri-folder-shield-2-line"></i> <span>Projects</span></a></li>
-                    <li><a href="#resume" class="nav-link"><i class="ri-article-line"></i> <span>Resume</span></a></li>
-                    <li><a href="#timeline" class="nav-link"><i class="ri-git-commit-line"></i> <span>Journey</span></a></li>
-                    <li><a href="#contact" class="nav-link"><i class="ri-mail-send-line"></i> <span>Contact</span></a></li>
+                    <li><a href="#projects" class="nav-link"><i class="ri-folder-shield-2-line"></i>
+                            <span>Projects</span></a></li>
+                    <li><a href="#timeline" class="nav-link"><i class="ri-git-commit-line"></i> <span>Journey</span></a>
+                    </li>
+                    <li><a href="#contact" class="nav-link"><i class="ri-mail-send-line"></i> <span>Contact</span></a>
+                    </li>
                 </ul>
             </nav>
 
             <div class="nav-actions">
                 <!-- Theme Toggle Button -->
-                <button class="icon-btn theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark and light theme" title="Toggle Theme">
+                <button class="icon-btn theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark and light theme"
+                    title="Toggle Theme">
                     <i class="ri-moon-clear-fill moon-icon"></i>
                     <i class="ri-sun-fill sun-icon"></i>
                 </button>
 
-                <!-- Quick Resume Trigger -->
-                <a href="#resume" class="btn btn-outline nav-resume-btn">
-                    <i class="ri-file-download-line"></i>
+                <!-- Dedicated Resume Page Link -->
+                <a href="https://drive.google.com/file/d/1RcNkLzkq-w43iQGJnzzakrFWBAQf9g_5/view?usp=sharing"
+                    class="btn btn-outline nav-resume-btn" id="nav-resume-btn" title="View Resume & CV">
+                    <i class="ri-file-user-line"></i>
                     <span>Resume</span>
                 </a>
 
@@ -122,7 +130,8 @@
                 <div class="hero-content">
                     <div class="status-badge" data-reveal="fade-up">
                         <span class="status-dot"></span>
-                        <span class="status-text">Available for Software Internships (2026)</span>
+                        <span class="status-text">Open to SDE &amp; Full-Stack Internships &bull; Winter 2026 / Summer
+                            2027</span>
                     </div>
 
                     <h1 class="hero-title" data-reveal="fade-up" data-delay="100">
@@ -137,8 +146,9 @@
                     </div>
 
                     <p class="hero-description" data-reveal="fade-up" data-delay="300">
-                        Computer Science Engineering undergrad at <strong>Swarnandhra College</strong> &amp; 
-                        <strong>NxtWave CCBP 4.0 Fellow</strong>. Engineering high-performance full-stack web applications, 
+                        Computer Science Engineering undergrad at <strong>Swarnandhra College</strong> &amp;
+                        <strong>NxtWave CCBP 4.0 Fellow</strong>. Engineering high-performance full-stack web
+                        applications,
                         AI-driven systems, and immersive modern digital experiences with clean scalable code.
                     </p>
 
@@ -147,9 +157,11 @@
                             <span>Explore Projects</span>
                             <i class="ri-arrow-right-up-line"></i>
                         </a>
-                        <a href="#resume" class="btn btn-secondary magnetic-btn">
-                            <i class="ri-file-text-line"></i>
-                            <span>View Resume</span>
+                        <!-- Resume Button in Hero -->
+                        <a href="https://drive.google.com/file/d/1RcNkLzkq-w43iQGJnzzakrFWBAQf9g_5/view?usp=sharing"
+                            class="btn btn-secondary magnetic-btn" id="hero-resume-btn">
+                            <i class="ri-file-user-line"></i>
+                            <span>Resume &amp; CV</span>
                         </a>
                         <button class="btn btn-glass magnetic-btn" id="copy-email-btn" title="Click to copy email">
                             <i class="ri-file-copy-line"></i>
@@ -161,15 +173,17 @@
                     <div class="hero-socials" data-reveal="fade-up" data-delay="500">
                         <span class="social-label">Connect with me:</span>
                         <div class="social-links">
-                            <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="GitHub">
+                            <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer"
+                                class="social-pill" aria-label="GitHub">
                                 <i class="ri-github-fill"></i>
                                 <span>GitHub</span>
                             </a>
-                            <a href="https://www.linkedin.com/in/sai-kiran-ketha/" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="LinkedIn">
+                            <a href="https://www.linkedin.com/in/sai-kiran-ketha/" target="_blank"
+                                rel="noopener noreferrer" class="social-pill" aria-label="LinkedIn">
                                 <i class="ri-linkedin-box-fill"></i>
                                 <span>LinkedIn</span>
                             </a>
-                            <a href="mailto:kethasaikiran123@gmail.com" class="social-pill" aria-label="Email">
+                            <a href="mailto:kethasaikiran143@gmail.com" class="social-pill" aria-label="Email">
                                 <i class="ri-mail-send-fill"></i>
                                 <span>Email</span>
                             </a>
@@ -212,7 +226,7 @@
                             </div>
                             <h3 class="card-name">Sai Kiran Ketha</h3>
                             <p class="card-sub">Full Stack &amp; Software Developer</p>
-                            
+
                             <div class="card-metrics-row">
                                 <div class="metric-item">
                                     <span class="metric-val">10+</span>
@@ -227,7 +241,7 @@
                                     <span class="metric-lbl">Grad</span>
                                 </div>
                             </div>
-                            
+
                             <div class="card-footer-action">
                                 <a href="#contact" class="btn btn-sm btn-primary w-full">
                                     <i class="ri-chat-smile-2-line"></i> Let's Collaborate
@@ -262,7 +276,8 @@
                                 <span class="counter-suffix">+</span>
                             </div>
                             <h4 class="stat-title">Verified Certifications</h4>
-                            <p class="stat-desc">NxtWave CCBP 4.0 accredited certifications across Python, SQL &amp; Full Stack web.</p>
+                            <p class="stat-desc">NxtWave CCBP 4.0 accredited certifications across Python, SQL &amp;
+                                Full Stack web.</p>
                         </div>
                     </div>
 
@@ -276,7 +291,8 @@
                                 <span class="counter-suffix">+</span>
                             </div>
                             <h4 class="stat-title">Continuous Learning Days</h4>
-                            <p class="stat-desc">Dedicated daily problem solving, data structures, and hands-on software building.</p>
+                            <p class="stat-desc">Dedicated daily problem solving, data structures, and hands-on software
+                                building.</p>
                         </div>
                     </div>
 
@@ -290,7 +306,8 @@
                                 <span class="counter-suffix">+</span>
                             </div>
                             <h4 class="stat-title">Projects &amp; Repositories</h4>
-                            <p class="stat-desc">Production-grade web apps, REST APIs, hackathon solutions, and database engines.</p>
+                            <p class="stat-desc">Production-grade web apps, REST APIs, hackathon solutions, and database
+                                engines.</p>
                         </div>
                     </div>
 
@@ -303,12 +320,14 @@
                                 <span class="counter" data-target="2028">0</span>
                             </div>
                             <h4 class="stat-title">B.Tech CSE Graduation</h4>
-                            <p class="stat-desc">Swarnandhra College of Engineering &amp; Technology (2024 - 2028 cohort).</p>
+                            <p class="stat-desc">Swarnandhra College of Engineering &amp; Technology (2024 - 2028
+                                cohort).</p>
                         </div>
                     </div>
 
                     <!-- Bento Featured Highlight: Currently Building -->
-                    <div class="bento-card highlight-card bento-span-2 tilt-element" data-reveal="fade-up" data-delay="150">
+                    <div class="bento-card highlight-card bento-span-2 tilt-element" data-reveal="fade-up"
+                        data-delay="150">
                         <div class="highlight-header">
                             <div class="live-indicator">
                                 <span class="ping-circle"></span>
@@ -320,14 +339,19 @@
                         <div class="highlight-content">
                             <h3>Building Scalable Web Architectures &amp; Preparing for SDE Internships</h3>
                             <p>
-                                Actively refining advanced Full-Stack competencies in React, Node.js, and SQL backend engineering,
-                                participating in national hackathons (VisionX), and exploring high-efficiency WebGL / 3D web interfaces.
+                                Actively refining advanced Full-Stack competencies in React, Node.js, and SQL backend
+                                engineering,
+                                participating in national hackathons (VisionX), and exploring high-efficiency WebGL / 3D
+                                web interfaces.
                             </p>
                             <div class="tech-pills-row">
                                 <span class="tech-pill"><i class="ri-reactjs-fill"></i> React 19</span>
-                                <span class="tech-pill"><i class="fa-brands fa-node-js"></i> Node.js &amp; Express</span>
-                                <span class="tech-pill"><i class="fa-brands fa-python"></i> Python &amp; Data Structures</span>
-                                <span class="tech-pill"><i class="ri-database-2-fill"></i> SQLite &amp; PostgreSQL</span>
+                                <span class="tech-pill"><i class="fa-brands fa-node-js"></i> Node.js &amp;
+                                    Express</span>
+                                <span class="tech-pill"><i class="fa-brands fa-python"></i> Python &amp; Data
+                                    Structures</span>
+                                <span class="tech-pill"><i class="ri-database-2-fill"></i> SQLite &amp;
+                                    PostgreSQL</span>
                                 <span class="tech-pill"><i class="ri-box-3-fill"></i> Three.js / 3D UI</span>
                             </div>
                         </div>
@@ -346,7 +370,8 @@
                     </div>
                     <h2 class="section-title">About <span class="gradient-text">Who I Am</span></h2>
                     <p class="section-subtitle">
-                        Passionate software developer, continuous learner, and problem solver with a deep enthusiasm for robust web engineering.
+                        Passionate software developer, continuous learner, and problem solver with a deep enthusiasm for
+                        robust web engineering.
                     </p>
                 </div>
 
@@ -357,8 +382,8 @@
                         </div>
                         <h3>B.Tech Computer Science</h3>
                         <p>
-                            Pursuing Bachelor of Technology in Computer Science Engineering at 
-                            <strong>Swarnandhra College of Engineering &amp; Technology</strong> (2024–2028). 
+                            Pursuing Bachelor of Technology in Computer Science Engineering at
+                            <strong>Swarnandhra College of Engineering &amp; Technology</strong> (2024–2028).
                             Focusing on algorithms, data structures, database management, and operating systems.
                         </p>
                         <div class="card-badge">Academic Journey</div>
@@ -370,8 +395,9 @@
                         </div>
                         <h3>NxtWave CCBP 4.0 Fellow</h3>
                         <p>
-                            Enrolled in the intensive CCBP 4.0 Transformation Program, mastering industry-aligned 
-                            full-stack web development through rigorous hands-on projects, code reviews, and modern engineering practices.
+                            Enrolled in the intensive CCBP 4.0 Transformation Program, mastering industry-aligned
+                            full-stack web development through rigorous hands-on projects, code reviews, and modern
+                            engineering practices.
                         </p>
                         <div class="card-badge">Industry Training</div>
                     </div>
@@ -382,7 +408,8 @@
                         </div>
                         <h3>Passionate Problem Solver</h3>
                         <p>
-                            Driven by curiosity to convert complex real-life challenges into clean, accessible digital products. 
+                            Driven by curiosity to convert complex real-life challenges into clean, accessible digital
+                            products.
                             Active participant in hackathons like VisionX and always eager to learn next-gen tools.
                         </p>
                         <div class="card-badge">Engineering Mindset</div>
@@ -401,178 +428,425 @@
                     </div>
                     <h2 class="section-title">Skills &amp; <span class="gradient-text">Proficiencies</span></h2>
                     <p class="section-subtitle">
-                        Core technical competencies honed through continuous coding, real-world projects, and NxtWave CCBP 4.0 intensive training.
+                        Core technical competencies honed through continuous coding, real-world projects, and NxtWave
+                        CCBP 4.0 intensive training.
                     </p>
                 </div>
 
-                <!-- Skill Filter Tabs -->
-                <div class="filter-tabs-wrapper" data-reveal="fade-up">
-                    <button class="filter-tab active" data-filter="all">All Technologies</button>
-                    <button class="filter-tab" data-filter="frontend">Frontend &amp; UI</button>
-                    <button class="filter-tab" data-filter="backend">Backend &amp; Data</button>
-                    <button class="filter-tab" data-filter="tools">Tools &amp; Workflow</button>
+                <!-- Filter Tabs -->
+                <div class="skills-filter-wrapper skill-filter-tabs" data-reveal="fade-up">
+                    <button class="skill-filter-btn skl-tab active" data-filter="all" data-skl="all">
+                        <span>All Technologies</span>
+                        <span class="skill-count">32</span>
+                    </button>
+                    <button class="skill-filter-btn skl-tab" data-filter="frontend" data-skl="frontend">
+                        <i class="ri-layout-masonry-line"></i>
+                        <span>Frontend &amp; UI</span>
+                    </button>
+                    <button class="skill-filter-btn skl-tab" data-filter="backend" data-skl="backend">
+                        <i class="ri-database-2-line"></i>
+                        <span>Backend &amp; Data</span>
+                    </button>
+                    <button class="skill-filter-btn skl-tab" data-filter="ai" data-skl="ai">
+                        <i class="ri-sparkling-2-line"></i>
+                        <span>AI &amp; Workflows</span>
+                    </button>
+                    <button class="skill-filter-btn skl-tab" data-filter="automation" data-skl="automation">
+                        <i class="ri-settings-5-line"></i>
+                        <span>Automation</span>
+                    </button>
+                    <button class="skill-filter-btn skl-tab" data-filter="tools" data-skl="tools">
+                        <i class="ri-tools-line"></i>
+                        <span>Developer Tools</span>
+                    </button>
                 </div>
 
-                <div class="skills-grid" id="skills-container">
-                    <!-- Python -->
-                    <div class="skill-item tilt-element" data-category="backend" data-reveal="fade-up">
-                        <div class="skill-head">
-                            <div class="skill-icon python-color"><i class="fa-brands fa-python"></i></div>
-                            <div class="skill-meta">
-                                <h4>Python</h4>
-                                <span>Advanced &amp; Problem Solving</span>
-                            </div>
-                            <span class="skill-percentage">95%</span>
+                <!-- Skills Icon Grid -->
+                <div class="skills-matrix-cards skills-logo-grid" id="skills-container" data-reveal="fade-up">
+
+                    <!-- ── FRONTEND & UI ── -->
+                    <div class="skill-card-item skl-card tilt-element" data-category="frontend" data-skl-cat="frontend">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+                                alt="React"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback react-color" style="display:none;"><i
+                                    class="ri-reactjs-fill"></i></div>
                         </div>
-                        <div class="skill-progress-bar">
-                            <div class="skill-progress-fill" style="width: 95%;"></div>
-                        </div>
-                        <div class="skill-tags">
-                            <span>OOP</span>
-                            <span>Data Structures</span>
-                            <span>Automation</span>
-                        </div>
+                        <span class="skill-name">React</span>
+                        <span class="skill-category">Frontend</span>
                     </div>
 
-                    <!-- SQL -->
-                    <div class="skill-item tilt-element" data-category="backend" data-reveal="fade-up" data-delay="50">
-                        <div class="skill-head">
-                            <div class="skill-icon sql-color"><i class="ri-database-2-line"></i></div>
-                            <div class="skill-meta">
-                                <h4>SQL &amp; Relational DBs</h4>
-                                <span>Queries &amp; Schema Design</span>
-                            </div>
-                            <span class="skill-percentage">90%</span>
+                    <div class="skill-card-item skl-card tilt-element" data-category="frontend" data-skl-cat="frontend">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
+                                alt="Next.js"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback next-color" style="display:none;"><i
+                                    class="ri-nextjs-fill"></i></div>
                         </div>
-                        <div class="skill-progress-bar">
-                            <div class="skill-progress-fill" style="width: 90%;"></div>
-                        </div>
-                        <div class="skill-tags">
-                            <span>SQLite</span>
-                            <span>Joins &amp; Aggregations</span>
-                            <span>Indexing</span>
-                        </div>
+                        <span class="skill-name">Next.js</span>
+                        <span class="skill-category">Framework</span>
                     </div>
 
-                    <!-- JavaScript -->
-                    <div class="skill-item tilt-element" data-category="frontend" data-reveal="fade-up" data-delay="100">
-                        <div class="skill-head">
-                            <div class="skill-icon js-color"><i class="fa-brands fa-js"></i></div>
-                            <div class="skill-meta">
-                                <h4>JavaScript (ES6+)</h4>
-                                <span>Modern Asynchronous JS</span>
-                            </div>
-                            <span class="skill-percentage">88%</span>
+                    <div class="skill-card-item skl-card tilt-element" data-category="frontend" data-skl-cat="frontend">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                                alt="HTML5"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback html-color" style="display:none;"><i
+                                    class="ri-html5-fill"></i></div>
                         </div>
-                        <div class="skill-progress-bar">
-                            <div class="skill-progress-fill" style="width: 88%;"></div>
-                        </div>
-                        <div class="skill-tags">
-                            <span>DOM Manipulation</span>
-                            <span>Async/Await</span>
-                            <span>Fetch API</span>
-                        </div>
+                        <span class="skill-name">HTML5</span>
+                        <span class="skill-category">Markup</span>
                     </div>
 
-                    <!-- React.js -->
-                    <div class="skill-item tilt-element" data-category="frontend" data-reveal="fade-up" data-delay="150">
-                        <div class="skill-head">
-                            <div class="skill-icon react-color"><i class="ri-reactjs-line"></i></div>
-                            <div class="skill-meta">
-                                <h4>React.js</h4>
-                                <span>Component Architecture</span>
-                            </div>
-                            <span class="skill-percentage">82%</span>
+                    <div class="skill-card-item skl-card tilt-element" data-category="frontend" data-skl-cat="frontend">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+                                alt="CSS3"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback css-color" style="display:none;"><i
+                                    class="ri-css3-fill"></i></div>
                         </div>
-                        <div class="skill-progress-bar">
-                            <div class="skill-progress-fill" style="width: 82%;"></div>
-                        </div>
-                        <div class="skill-tags">
-                            <span>Hooks &amp; State</span>
-                            <span>Routing</span>
-                            <span>Context API</span>
-                        </div>
+                        <span class="skill-name">CSS3</span>
+                        <span class="skill-category">Styling</span>
                     </div>
 
-                    <!-- HTML5 & CSS3 -->
-                    <div class="skill-item tilt-element" data-category="frontend" data-reveal="fade-up" data-delay="200">
-                        <div class="skill-head">
-                            <div class="skill-icon html-color"><i class="ri-html5-fill"></i></div>
-                            <div class="skill-meta">
-                                <h4>HTML5 &amp; CSS3</h4>
-                                <span>Semantic &amp; Responsive UI</span>
-                            </div>
-                            <span class="skill-percentage">95%</span>
+                    <div class="skill-card-item skl-card tilt-element" data-category="frontend" data-skl-cat="frontend">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
+                                alt="Bootstrap"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback bootstrap-color" style="display:none;"><i
+                                    class="fa-brands fa-bootstrap"></i></div>
                         </div>
-                        <div class="skill-progress-bar">
-                            <div class="skill-progress-fill" style="width: 95%;"></div>
-                        </div>
-                        <div class="skill-tags">
-                            <span>Flexbox &amp; Grid</span>
-                            <span>Animations</span>
-                            <span>Accessibility</span>
-                        </div>
+                        <span class="skill-name">Bootstrap</span>
+                        <span class="skill-category">UI Framework</span>
                     </div>
 
-                    <!-- Node.js & Express -->
-                    <div class="skill-item tilt-element" data-category="backend" data-reveal="fade-up" data-delay="250">
-                        <div class="skill-head">
-                            <div class="skill-icon node-color"><i class="fa-brands fa-node-js"></i></div>
-                            <div class="skill-meta">
-                                <h4>Node.js &amp; Express</h4>
-                                <span>REST API Engineering</span>
-                            </div>
-                            <span class="skill-percentage">80%</span>
+                    <div class="skill-card-item skl-card tilt-element" data-category="frontend" data-skl-cat="frontend">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                                alt="JavaScript"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback js-color" style="display:none;"><i
+                                    class="fa-brands fa-js"></i></div>
                         </div>
-                        <div class="skill-progress-bar">
-                            <div class="skill-progress-fill" style="width: 80%;"></div>
-                        </div>
-                        <div class="skill-tags">
-                            <span>Middleware</span>
-                            <span>JWT Auth</span>
-                            <span>RESTful APIs</span>
-                        </div>
+                        <span class="skill-name">JavaScript</span>
+                        <span class="skill-category">Language</span>
                     </div>
 
-                    <!-- Git & GitHub -->
-                    <div class="skill-item tilt-element" data-category="tools" data-reveal="fade-up" data-delay="300">
-                        <div class="skill-head">
-                            <div class="skill-icon git-color"><i class="fa-brands fa-git-alt"></i></div>
-                            <div class="skill-meta">
-                                <h4>Git &amp; GitHub</h4>
-                                <span>Version Control &amp; Collab</span>
-                            </div>
-                            <span class="skill-percentage">90%</span>
+                    <div class="skill-card-item skl-card tilt-element" data-category="frontend" data-skl-cat="frontend">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2721/2721291.png"
+                                alt="Responsive Web Design"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback react-color" style="display:none;"><i
+                                    class="ri-responsive-line"></i></div>
                         </div>
-                        <div class="skill-progress-bar">
-                            <div class="skill-progress-fill" style="width: 90%;"></div>
-                        </div>
-                        <div class="skill-tags">
-                            <span>Branching</span>
-                            <span>PRs &amp; Merges</span>
-                            <span>Open Source</span>
-                        </div>
+                        <span class="skill-name">Responsive Design</span>
+                        <span class="skill-category">UI / UX</span>
                     </div>
 
-                    <!-- Three.js & WebGL -->
-                    <div class="skill-item tilt-element" data-category="frontend" data-reveal="fade-up" data-delay="350">
-                        <div class="skill-head">
-                            <div class="skill-icon three-color"><i class="ri-box-3-line"></i></div>
-                            <div class="skill-meta">
-                                <h4>Three.js &amp; WebGL</h4>
-                                <span>3D Interactive Interfaces</span>
-                            </div>
-                            <span class="skill-percentage">75%</span>
+                    <!-- ── BACKEND & DATA ── -->
+                    <div class="skill-card-item skl-card tilt-element" data-category="backend" data-skl-cat="backend">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                                alt="Python"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback python-color" style="display:none;"><i
+                                    class="fa-brands fa-python"></i></div>
                         </div>
-                        <div class="skill-progress-bar">
-                            <div class="skill-progress-fill" style="width: 75%;"></div>
-                        </div>
-                        <div class="skill-tags">
-                            <span>3D Meshes</span>
-                            <span>Shaders &amp; Lights</span>
-                            <span>60fps Canvas</span>
-                        </div>
+                        <span class="skill-name">Python</span>
+                        <span class="skill-category">Language</span>
                     </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="backend" data-skl-cat="backend">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
+                                alt="Node.js"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback node-color" style="display:none;"><i
+                                    class="fa-brands fa-node-js"></i></div>
+                        </div>
+                        <span class="skill-name">Node.js</span>
+                        <span class="skill-category">Runtime</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="backend" data-skl-cat="backend">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg"
+                                alt="Express.js"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback express-color" style="display:none;"><i
+                                    class="ri-server-line"></i></div>
+                        </div>
+                        <span class="skill-name">Express.js</span>
+                        <span class="skill-category">Backend API</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="backend" data-skl-cat="backend">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg"
+                                alt="Bash"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback bash-color" style="display:none;"><i
+                                    class="ri-terminal-box-line"></i></div>
+                        </div>
+                        <span class="skill-name">Bash</span>
+                        <span class="skill-category">Shell Scripting</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="backend" data-skl-cat="backend">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
+                                alt="PostgreSQL"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback pg-color" style="display:none;"><i
+                                    class="ri-database-line"></i></div>
+                        </div>
+                        <span class="skill-name">PostgreSQL</span>
+                        <span class="skill-category">Relational DB</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="backend" data-skl-cat="backend">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"
+                                alt="MySQL"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback mysql-color" style="display:none;"><i
+                                    class="ri-database-2-line"></i></div>
+                        </div>
+                        <span class="skill-name">MySQL</span>
+                        <span class="skill-category">Relational DB</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="backend" data-skl-cat="backend">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg"
+                                alt="SQL"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback sql-color" style="display:none;"><i
+                                    class="ri-database-2-fill"></i></div>
+                        </div>
+                        <span class="skill-name">SQL</span>
+                        <span class="skill-category">Query Language</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="backend" data-skl-cat="backend">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg"
+                                alt="SQLite"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback sql-color" style="display:none;"><i
+                                    class="ri-database-line"></i></div>
+                        </div>
+                        <span class="skill-name">SQLite</span>
+                        <span class="skill-category">Embedded DB</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="backend" data-skl-cat="backend">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg"
+                                alt="Supabase"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback supabase-color" style="display:none;"><i
+                                    class="ri-flashlight-line"></i></div>
+                        </div>
+                        <span class="skill-name">Supabase</span>
+                        <span class="skill-category">BaaS / Database</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="backend" data-skl-cat="backend">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg"
+                                alt="MongoDB"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback mongo-color" style="display:none;"><i
+                                    class="ri-leaf-line"></i></div>
+                        </div>
+                        <span class="skill-name">MongoDB</span>
+                        <span class="skill-category">NoSQL Database</span>
+                    </div>
+
+                    <!-- ── AI & WORKFLOWS ── -->
+                    <div class="skill-card-item skl-card tilt-element" data-category="ai" data-skl-cat="ai">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.simpleicons.org/openai/ffffff" alt="OpenAI API"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback openai-color" style="display:none;"><i
+                                    class="ri-openai-fill"></i></div>
+                        </div>
+                        <span class="skill-name">OpenAI API</span>
+                        <span class="skill-category">LLM Engine</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="ai" data-skl-cat="ai">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.simpleicons.org/langchain/ffffff" alt="LangChain"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback langchain-color" style="display:none;"><i
+                                    class="ri-links-line"></i></div>
+                        </div>
+                        <span class="skill-name">LangChain</span>
+                        <span class="skill-category">Agent Pipelines</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="ai" data-skl-cat="ai">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.simpleicons.org/anthropic/ffffff" alt="AI Agents"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback ai-color" style="display:none;"><i
+                                    class="ri-robot-2-fill"></i></div>
+                        </div>
+                        <span class="skill-name">AI Agents</span>
+                        <span class="skill-category">Autonomous Systems</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="ai" data-skl-cat="ai">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.simpleicons.org/openai/a78bfa" alt="MCP Concepts"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback ai-color" style="display:none;"><i class="ri-cpu-line"></i>
+                            </div>
+                        </div>
+                        <span class="skill-name">MCP Concepts</span>
+                        <span class="skill-category">Context Protocol</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="ai" data-skl-cat="ai">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.simpleicons.org/googlegemini/ffffff" alt="Prompt Workflows"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback ai-color" style="display:none;"><i
+                                    class="ri-chat-ai-line"></i></div>
+                        </div>
+                        <span class="skill-name">Prompt Workflows</span>
+                        <span class="skill-category">Prompt Engineering</span>
+                    </div>
+
+                    <!-- ── AUTOMATION ── -->
+                    <div class="skill-card-item skl-card tilt-element" data-category="automation"
+                        data-skl-cat="automation">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.simpleicons.org/make/9b59b6" alt="Make.com"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback auto-color" style="display:none;"><i
+                                    class="ri-loop-right-line"></i></div>
+                        </div>
+                        <span class="skill-name">Make.com</span>
+                        <span class="skill-category">Visual Automation</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="automation"
+                        data-skl-cat="automation">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.simpleicons.org/pipedream/00AEF0" alt="Pipedream"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback auto-color" style="display:none;"><i
+                                    class="ri-flow-chart"></i></div>
+                        </div>
+                        <span class="skill-name">Pipedream</span>
+                        <span class="skill-category">Workflow Engine</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="automation"
+                        data-skl-cat="automation">
+                        <div class="skill-icon-box">
+                            <img src="https://www.automationanywhere.com/sites/default/files/images/AAI/automation-anywhere-logo-a-only.png"
+                                alt="Workflow Automation"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback auto-color" style="display:none;"><i
+                                    class="ri-git-merge-line"></i></div>
+                        </div>
+                        <span class="skill-name">Workflow Automation</span>
+                        <span class="skill-category">Event Pipelines</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="automation"
+                        data-skl-cat="automation">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.simpleicons.org/postman/FF6C37" alt="API Integration"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback auto-color" style="display:none;"><i
+                                    class="ri-api-line"></i></div>
+                        </div>
+                        <span class="skill-name">API Integration</span>
+                        <span class="skill-category">REST &amp; Webhooks</span>
+                    </div>
+
+                    <!-- ── DEVELOPER TOOLS ── -->
+                    <div class="skill-card-item skl-card tilt-element" data-category="tools" data-skl-cat="tools">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                                alt="Git"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback git-color" style="display:none;"><i
+                                    class="fa-brands fa-git-alt"></i></div>
+                        </div>
+                        <span class="skill-name">Git</span>
+                        <span class="skill-category">Version Control</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="tools" data-skl-cat="tools">
+                        <div class="skill-icon-box">
+                            <img src="https://www.svgrepo.com/show/394174/github.svg" alt="GitHub"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback github-color" style="display:none;"><i
+                                    class="ri-github-fill"></i></div>
+                        </div>
+                        <span class="skill-name">GitHub</span>
+                        <span class="skill-category">Code Collaboration</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="tools" data-skl-cat="tools">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.simpleicons.org/cursor/ffffff" alt="Cursor IDE"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback cursor-color" style="display:none;"><i
+                                    class="ri-cursor-fill"></i></div>
+                        </div>
+                        <span class="skill-name">Cursor IDE</span>
+                        <span class="skill-category">AI Code Editor</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="tools" data-skl-cat="tools">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg"
+                                alt="VS Code"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback vscode-color" style="display:none;"><i
+                                    class="ri-vscode-fill"></i></div>
+                        </div>
+                        <span class="skill-name">VS Code</span>
+                        <span class="skill-category">Primary Editor</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="tools" data-skl-cat="tools">
+                        <div class="skill-icon-box">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecolab/googlecolab-original.svg"
+                                alt="Google Colab"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback colab-color" style="display:none;"><i
+                                    class="ri-google-fill"></i></div>
+                        </div>
+                        <span class="skill-name">Google Colab</span>
+                        <span class="skill-category">Cloud Notebook</span>
+                    </div>
+
+                    <div class="skill-card-item skl-card tilt-element" data-category="tools" data-skl-cat="tools">
+                        <div class="skill-icon-box">
+                            <img src="https://antigravity.google/assets/image/brand/antigravity-icon__full-color.png"
+                                alt="Antigravity"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="skill-icon-fallback antigravity-color" style="display:none;"><i
+                                    class="ri-rocket-2-fill"></i></div>
+                        </div>
+                        <span class="skill-name">Antigravity</span>
+                        <span class="skill-category">Agent Platform</span>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -587,7 +861,8 @@
                     </div>
                     <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
                     <p class="section-subtitle">
-                        Interactive web applications, AI-assisted tools, and full-stack platforms engineered with high standards of design and functionality.
+                        Interactive web applications, AI-assisted tools, and full-stack platforms engineered with high
+                        standards of design and functionality.
                     </p>
                 </div>
 
@@ -603,7 +878,9 @@
                     <!-- Project 1: Smart Attendance System -->
                     <div class="project-card tilt-element" data-category="fullstack" data-reveal="fade-up">
                         <div class="project-image-wrapper">
-                            <img src="assets/smart_attendance.jpg" alt="Smart Attendance System Dashboard" class="project-img" loading="lazy">
+                            <img src="assets/smart_attendance.jpg"
+                                onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop'"
+                                alt="Smart Attendance System Dashboard" class="project-img" loading="lazy">
                             <div class="project-overlay">
                                 <button class="btn btn-sm btn-primary open-case-study" data-project="smart-attendance">
                                     <i class="ri-eye-line"></i> View Case Study
@@ -620,8 +897,10 @@
                             </div>
                             <h3 class="project-title">Smart Attendance System</h3>
                             <p class="project-description">
-                                A comprehensive, secure attendance management platform featuring biometric/face recognition authentication, 
-                                real-time analytics dashboard, student check-in timeline, and role-based faculty permissions.
+                                A comprehensive, secure attendance management platform featuring biometric/face
+                                recognition authentication,
+                                real-time analytics dashboard, student check-in timeline, and role-based faculty
+                                permissions.
                             </p>
                             <div class="project-actions">
                                 <button class="btn-text-link open-case-study" data-project="smart-attendance">
@@ -629,7 +908,8 @@
                                     <i class="ri-arrow-right-line"></i>
                                 </button>
                                 <div class="project-links">
-                                    <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer" class="icon-link" title="Source Code">
+                                    <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer"
+                                        class="icon-link" title="Source Code">
                                         <i class="ri-github-line"></i>
                                     </a>
                                     <a href="#contact" class="icon-link" title="Request Live Demo">
@@ -643,7 +923,9 @@
                     <!-- Project 2: VisionX AI Hackathon Project -->
                     <div class="project-card tilt-element" data-category="ai" data-reveal="fade-up" data-delay="100">
                         <div class="project-image-wrapper">
-                            <img src="assets/visionx_ai.jpg" alt="VisionX AI Hackathon Project" class="project-img" loading="lazy">
+                            <img src="assets/visionx_ai.jpg"
+                                onerror="this.src='https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1000&auto=format&fit=crop'"
+                                alt="VisionX AI Hackathon Project" class="project-img" loading="lazy">
                             <div class="project-overlay">
                                 <button class="btn btn-sm btn-primary open-case-study" data-project="visionx-ai">
                                     <i class="ri-eye-line"></i> View Case Study
@@ -660,7 +942,8 @@
                             </div>
                             <h3 class="project-title">VisionX AI Solution</h3>
                             <p class="project-description">
-                                AI-powered computer vision &amp; surveillance analytics system designed for real-world automated object detection, 
+                                AI-powered computer vision &amp; surveillance analytics system designed for real-world
+                                automated object detection,
                                 movement telemetry, anomaly alerts, and multi-camera live video stream processing.
                             </p>
                             <div class="project-actions">
@@ -669,7 +952,8 @@
                                     <i class="ri-arrow-right-line"></i>
                                 </button>
                                 <div class="project-links">
-                                    <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer" class="icon-link" title="Source Code">
+                                    <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer"
+                                        class="icon-link" title="Source Code">
                                         <i class="ri-github-line"></i>
                                     </a>
                                     <a href="#contact" class="icon-link" title="Live Presentation">
@@ -681,9 +965,12 @@
                     </div>
 
                     <!-- Project 3: CCBP Full Stack Web Suite -->
-                    <div class="project-card tilt-element" data-category="fullstack" data-reveal="fade-up" data-delay="200">
+                    <div class="project-card tilt-element" data-category="fullstack" data-reveal="fade-up"
+                        data-delay="200">
                         <div class="project-image-wrapper">
-                            <img src="assets/ccbp_fullstack.jpg" alt="CCBP Full Stack Applications" class="project-img" loading="lazy">
+                            <img src="assets/ccbp_fullstack.jpg"
+                                onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop'"
+                                alt="CCBP Full Stack Applications" class="project-img" loading="lazy">
                             <div class="project-overlay">
                                 <button class="btn btn-sm btn-primary open-case-study" data-project="ccbp-suite">
                                     <i class="ri-eye-line"></i> View Case Study
@@ -700,8 +987,9 @@
                             </div>
                             <h3 class="project-title">CCBP Full-Stack Web Suite</h3>
                             <p class="project-description">
-                                An integrated ecosystem of web applications developed during CCBP 4.0 training, 
-                                including REST API servers, user authentication flows, dynamic database queries, and modular UI dashboards.
+                                An integrated ecosystem of web applications developed during CCBP 4.0 training,
+                                including REST API servers, user authentication flows, dynamic database queries, and
+                                modular UI dashboards.
                             </p>
                             <div class="project-actions">
                                 <button class="btn-text-link open-case-study" data-project="ccbp-suite">
@@ -709,10 +997,12 @@
                                     <i class="ri-arrow-right-line"></i>
                                 </button>
                                 <div class="project-links">
-                                    <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer" class="icon-link" title="Source Code">
+                                    <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer"
+                                        class="icon-link" title="Source Code">
                                         <i class="ri-github-line"></i>
                                     </a>
-                                    <a href="https://kethasaikiran.ccbp.tech" target="_blank" rel="noopener noreferrer" class="icon-link" title="CCBP Live Domain">
+                                    <a href="https://kethasaikiran.ccbp.tech" target="_blank" rel="noopener noreferrer"
+                                        class="icon-link" title="CCBP Live Domain">
                                         <i class="ri-external-link-line"></i>
                                     </a>
                                 </div>
@@ -721,9 +1011,12 @@
                     </div>
 
                     <!-- Project 4: 3D Developer Portfolio Universe -->
-                    <div class="project-card tilt-element" data-category="frontend" data-reveal="fade-up" data-delay="300">
+                    <div class="project-card tilt-element" data-category="frontend" data-reveal="fade-up"
+                        data-delay="300">
                         <div class="project-image-wrapper">
-                            <img src="assets/portfolio_3d.jpg" alt="3D Futuristic Developer Portfolio" class="project-img" loading="lazy">
+                            <img src="assets/portfolio_3d.jpg"
+                                onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop'"
+                                alt="3D Futuristic Developer Portfolio" class="project-img" loading="lazy">
                             <div class="project-overlay">
                                 <button class="btn btn-sm btn-primary open-case-study" data-project="portfolio-3d">
                                     <i class="ri-eye-line"></i> View Case Study
@@ -740,8 +1033,10 @@
                             </div>
                             <h3 class="project-title">Next-Gen 3D Cyber Portfolio</h3>
                             <p class="project-description">
-                                A high-performance 60fps developer portfolio featuring interactive Three.js 3D geometric meshes, 
-                                real-time perspective card tilt, customizable themes, dynamic typing animations, and full mobile optimization.
+                                A high-performance 60fps developer portfolio featuring interactive Three.js 3D geometric
+                                meshes,
+                                real-time perspective card tilt, customizable themes, dynamic typing animations, and
+                                full mobile optimization.
                             </p>
                             <div class="project-actions">
                                 <button class="btn-text-link open-case-study" data-project="portfolio-3d">
@@ -749,208 +1044,14 @@
                                     <i class="ri-arrow-right-line"></i>
                                 </button>
                                 <div class="project-links">
-                                    <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer" class="icon-link" title="Source Code">
+                                    <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer"
+                                        class="icon-link" title="Source Code">
                                         <i class="ri-github-line"></i>
                                     </a>
                                     <a href="#hero" class="icon-link" title="View Current">
                                         <i class="ri-sparkling-line"></i>
                                     </a>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= INTERACTIVE RESUME SECTION ================= -->
-        <section class="resume-section section-padding" id="resume">
-            <div class="container">
-                <div class="section-header" data-reveal="fade-up">
-                    <div class="section-tag">
-                        <i class="ri-file-user-line"></i>
-                        <span>CURRICULUM VITAE</span>
-                    </div>
-                    <h2 class="section-title">Interactive <span class="gradient-text">Resume</span></h2>
-                    <p class="section-subtitle">
-                        An overview of my academic foundation, hands-on software development experience, industry certifications, and key technical capabilities.
-                    </p>
-                </div>
-
-                <div class="resume-wrapper">
-                    <!-- Resume Controls -->
-                    <div class="resume-action-bar" data-reveal="fade-up">
-                        <div class="resume-nav-tabs">
-                            <button class="resume-tab-btn active" data-tab="education">
-                                <i class="ri-graduation-cap-line"></i> Education
-                            </button>
-                            <button class="resume-tab-btn" data-tab="experience">
-                                <i class="ri-briefcase-4-line"></i> Experience &amp; Fellowship
-                            </button>
-                            <button class="resume-tab-btn" data-tab="certifications">
-                                <i class="ri-award-line"></i> Certifications (10+)
-                            </button>
-                            <button class="resume-tab-btn" data-tab="competencies">
-                                <i class="ri-shield-star-line"></i> Core Competencies
-                            </button>
-                        </div>
-
-                        <div class="resume-download-actions">
-                            <button class="btn btn-secondary btn-sm" id="view-resume-modal-btn">
-                                <i class="ri-eye-line"></i> View Full Resume
-                            </button>
-                            <a href="#contact" class="btn btn-primary btn-sm" id="download-cv-trigger">
-                                <i class="ri-download-2-line"></i> Download CV (PDF)
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Resume Tab Content Area -->
-                    <div class="resume-tab-content active" id="tab-education" data-reveal="fade-up">
-                        <div class="resume-card">
-                            <div class="resume-card-header">
-                                <div class="resume-title-group">
-                                    <h3>Bachelor of Technology (B.Tech) - Computer Science &amp; Engineering</h3>
-                                    <h4 class="company-name">Swarnandhra College of Engineering &amp; Technology</h4>
-                                </div>
-                                <span class="resume-date-badge">2024 – 2028 (Expected)</span>
-                            </div>
-                            <div class="resume-card-body">
-                                <p><strong>Key Focus Areas:</strong> Object Oriented Programming, Data Structures &amp; Algorithms, Database Management Systems, Computer Networks, Operating Systems, Web Technologies.</p>
-                                <ul class="resume-bullets">
-                                    <li>Maintaining strong academic standing with active involvement in technical coding clubs and collegiate hackathons.</li>
-                                    <li>Collaborating on team engineering projects and leading web dev study groups on campus.</li>
-                                    <li>Building algorithmic solutions in Python and participating in competitive programming challenges.</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="resume-card">
-                            <div class="resume-card-header">
-                                <div class="resume-title-group">
-                                    <h3>Intermediate &amp; Secondary Education</h3>
-                                    <h4 class="company-name">State Board of Intermediate &amp; Secondary Education</h4>
-                                </div>
-                                <span class="resume-date-badge">Completed with High Distinction</span>
-                            </div>
-                            <div class="resume-card-body">
-                                <p>Core subjects: Mathematics, Physics, Chemistry, and Computer Basics. Built solid fundamentals in analytical logic and quantitative problem solving.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="resume-tab-content" id="tab-experience">
-                        <div class="resume-card">
-                            <div class="resume-card-header">
-                                <div class="resume-title-group">
-                                    <h3>Full Stack Developer Trainee &amp; Fellow</h3>
-                                    <h4 class="company-name">NxtWave CCBP 4.0 Academy</h4>
-                                </div>
-                                <span class="resume-date-badge">2024 – Present</span>
-                            </div>
-                            <div class="resume-card-body">
-                                <ul class="resume-bullets">
-                                    <li>Completed over <strong>700+ learning days</strong> of structured software engineering curricula, mastering Python, SQL, Modern JavaScript, React.js, and Node.js.</li>
-                                    <li>Engineered dynamic and scalable full-stack web applications with end-to-end REST API integration and database persistence.</li>
-                                    <li>Implemented responsive, accessible UI layouts adhering to industry UI/UX guidelines and modern cross-browser standards.</li>
-                                    <li>Participated in regular code reviews, peer programming sessions, and technical problem-solving assessments.</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="resume-card">
-                            <div class="resume-card-header">
-                                <div class="resume-title-group">
-                                    <h3>Hackathon Contender &amp; AI Solution Architect</h3>
-                                    <h4 class="company-name">VisionX Innovation Challenge</h4>
-                                </div>
-                                <span class="resume-date-badge">2026</span>
-                            </div>
-                            <div class="resume-card-body">
-                                <ul class="resume-bullets">
-                                    <li>Designed and engineered a functional prototype for automated computer vision detection using Python and neural network APIs.</li>
-                                    <li>Created an interactive analytics monitoring dashboard allowing operators to track detection telemetry in real-time.</li>
-                                    <li>Presented architecture, scalability tradeoffs, and technical roadmap to the hackathon judging panel.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="resume-tab-content" id="tab-certifications">
-                        <div class="certs-grid">
-                            <div class="cert-item">
-                                <div class="cert-icon"><i class="ri-shield-check-fill"></i></div>
-                                <div class="cert-info">
-                                    <h4>Programming Foundations with Python</h4>
-                                    <p>NxtWave CCBP 4.0 Certification • Advanced OOP, Algorithms &amp; Logic</p>
-                                </div>
-                                <span class="cert-status">Verified</span>
-                            </div>
-
-                            <div class="cert-item">
-                                <div class="cert-icon"><i class="ri-database-2-fill"></i></div>
-                                <div class="cert-info">
-                                    <h4>Database Management &amp; SQL</h4>
-                                    <p>NxtWave CCBP 4.0 Certification • Relational Schemas, Complex Queries</p>
-                                </div>
-                                <span class="cert-status">Verified</span>
-                            </div>
-
-                            <div class="cert-item">
-                                <div class="cert-icon"><i class="ri-layout-masonry-fill"></i></div>
-                                <div class="cert-info">
-                                    <h4>Responsive Web Design &amp; CSS3</h4>
-                                    <p>NxtWave CCBP 4.0 Certification • Flexbox, Grid, Mobile-First Design</p>
-                                </div>
-                                <span class="cert-status">Verified</span>
-                            </div>
-
-                            <div class="cert-item">
-                                <div class="cert-icon"><i class="ri-javascript-fill"></i></div>
-                                <div class="cert-info">
-                                    <h4>Dynamic Web Applications &amp; JavaScript</h4>
-                                    <p>NxtWave CCBP 4.0 Certification • ES6+, Async JS &amp; DOM Manipulation</p>
-                                </div>
-                                <span class="cert-status">Verified</span>
-                            </div>
-
-                            <div class="cert-item">
-                                <div class="cert-icon"><i class="ri-reactjs-fill"></i></div>
-                                <div class="cert-info">
-                                    <h4>React.js Frontend Architecture</h4>
-                                    <p>NxtWave CCBP 4.0 Certification • Components, State Management &amp; SPAs</p>
-                                </div>
-                                <span class="cert-status">Verified</span>
-                            </div>
-
-                            <div class="cert-item">
-                                <div class="cert-icon"><i class="ri-server-fill"></i></div>
-                                <div class="cert-info">
-                                    <h4>Node.js, Express &amp; RESTful APIs</h4>
-                                    <p>NxtWave CCBP 4.0 Certification • Server Architecture &amp; Middleware</p>
-                                </div>
-                                <span class="cert-status">Verified</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="resume-tab-content" id="tab-competencies">
-                        <div class="competencies-grid">
-                            <div class="comp-box">
-                                <h4><i class="ri-code-box-line"></i> Full-Stack Development</h4>
-                                <p>End-to-end web engineering from responsive frontend interfaces (React, HTML5, CSS3) to robust backend REST APIs (Node.js, Express, Python).</p>
-                            </div>
-                            <div class="comp-box">
-                                <h4><i class="ri-database-line"></i> Database Systems</h4>
-                                <p>Schema modeling, normalization, indexing, relational queries, transaction integrity in SQLite, PostgreSQL, and SQL databases.</p>
-                            </div>
-                            <div class="comp-box">
-                                <h4><i class="ri-cpu-line"></i> Data Structures &amp; Problem Solving</h4>
-                                <p>Analytical problem decomposition, array manipulation, tree/graph logic, searching &amp; sorting optimizations.</p>
-                            </div>
-                            <div class="comp-box">
-                                <h4><i class="ri-git-branch-line"></i> Dev Workflow &amp; Best Practices</h4>
-                                <p>Git version control, clean modular code, semantic SEO, API security &amp; JWT authentication, performance optimization.</p>
                             </div>
                         </div>
                     </div>
@@ -984,8 +1085,10 @@
                             <div class="timeline-year">2024</div>
                             <h3>Foundations &amp; CCBP 4.0 Induction</h3>
                             <p>
-                                Commenced Bachelor of Technology in Computer Science &amp; Engineering at Swarnandhra College. 
-                                Selected for the prestigious NxtWave CCBP 4.0 fellowship and mastered Python programming and SQL fundamentals.
+                                Commenced Bachelor of Technology in Computer Science &amp; Engineering at Swarnandhra
+                                College.
+                                Selected for the prestigious NxtWave CCBP 4.0 fellowship and mastered Python programming
+                                and SQL fundamentals.
                             </p>
                             <span class="timeline-tag">Foundations</span>
                         </div>
@@ -1000,8 +1103,10 @@
                             <div class="timeline-year">2025</div>
                             <h3>Full-Stack Mastery &amp; 10+ Certifications</h3>
                             <p>
-                                Reached 500+ learning days milestone. Built the Smart Attendance System, mastered JavaScript ES6+, 
-                                React.js frontend development, and Node.js REST API servers. Earned 10+ accredited technical certificates.
+                                Reached 500+ learning days milestone. Built the Smart Attendance System, mastered
+                                JavaScript ES6+,
+                                React.js frontend development, and Node.js REST API servers. Earned 10+ accredited
+                                technical certificates.
                             </p>
                             <span class="timeline-tag">Full-Stack Development</span>
                         </div>
@@ -1016,8 +1121,9 @@
                             <div class="timeline-year">2026 • Present</div>
                             <h3>VisionX Hackathons &amp; SDE Internships</h3>
                             <p>
-                                Built the VisionX AI platform for the national hackathon. Reached 700+ learning days. 
-                                Actively seeking Software Development Engineer (SDE) and Full Stack internships to deliver impactful industry value.
+                                Built the VisionX AI platform for the national hackathon. Reached 700+ learning days.
+                                Actively seeking Software Development Engineer (SDE) and Full Stack internships to
+                                deliver impactful industry value.
                             </p>
                             <span class="timeline-tag active-tag">Current Milestone</span>
                         </div>
@@ -1032,8 +1138,9 @@
                             <div class="timeline-year">2028</div>
                             <h3>B.Tech CSE Graduation &amp; Beyond</h3>
                             <p>
-                                Graduation from Swarnandhra College of Engineering &amp; Technology. 
-                                Transitioning into high-impact full-time Software Engineering roles, building scalable distributed systems and cutting-edge products.
+                                Graduation from Swarnandhra College of Engineering &amp; Technology.
+                                Transitioning into high-impact full-time Software Engineering roles, building scalable
+                                distributed systems and cutting-edge products.
                             </p>
                             <span class="timeline-tag">Future Goal</span>
                         </div>
@@ -1050,9 +1157,11 @@
                         <i class="ri-chat-voice-line"></i>
                         <span>GET IN TOUCH</span>
                     </div>
-                    <h2 class="section-title">Let's Build <span class="gradient-text">Something Amazing</span></h2>
+                    <h2 class="section-title">Let's Build <span class="gradient-text">Something Amazing</span> – Thank
+                        you for visiting! 🙏</h2>
                     <p class="section-subtitle">
-                        Interested in hiring me for an internship, collaborating on a hackathon, or discussing a project? Drop a message below!
+                        Interested in hiring me for an internship, collaborating on a hackathon, or discussing a
+                        project? Drop a message below!
                     </p>
                 </div>
 
@@ -1065,7 +1174,8 @@
                             </div>
                             <div class="info-card-content">
                                 <h4>Email Me</h4>
-                                <a href="mailto:kethasaikiran123@gmail.com" class="contact-link">kethasaikiran123@gmail.com</a>
+                                <a href="mailto:kethasaikiran143@gmail.com"
+                                    class="contact-link">kethasaikiran143@gmail.com</a>
                                 <p class="info-sub">Fastest response within 24 hours</p>
                             </div>
                         </div>
@@ -1095,10 +1205,12 @@
                         <div class="contact-socials-box">
                             <h4>Direct Social Profiles</h4>
                             <div class="social-btn-grid">
-                                <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer" class="social-box-btn">
+                                <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer"
+                                    class="social-box-btn">
                                     <i class="ri-github-fill"></i> GitHub
                                 </a>
-                                <a href="https://www.linkedin.com/in/sai-kiran-ketha/" target="_blank" rel="noopener noreferrer" class="social-box-btn">
+                                <a href="https://www.linkedin.com/in/sai-kiran-ketha/" target="_blank"
+                                    rel="noopener noreferrer" class="social-box-btn">
                                     <i class="ri-linkedin-fill"></i> LinkedIn
                                 </a>
                             </div>
@@ -1111,20 +1223,31 @@
                         <div class="form-presets">
                             <span class="preset-label">Quick Intent:</span>
                             <div class="preset-pills">
-                                <button type="button" class="preset-pill active" data-subject="Software Engineering Internship Opportunity">💼 Internship</button>
-                                <button type="button" class="preset-pill" data-subject="Hackathon Collaboration &amp; Teaming">🚀 Hackathon</button>
-                                <button type="button" class="preset-pill" data-subject="Freelance / Web Development Project">💻 Web Project</button>
-                                <button type="button" class="preset-pill" data-subject="General Inquiry &amp; Networking">👋 Just Saying Hi</button>
+                                <button type="button" class="preset-pill active"
+                                    data-subject="Software Engineering Internship Opportunity">💼 Internship</button>
+                                <button type="button" class="preset-pill"
+                                    data-subject="Hackathon Collaboration &amp; Teaming">🚀 Hackathon</button>
+                                <button type="button" class="preset-pill"
+                                    data-subject="Freelance / Web Development Project">💻 Web Project</button>
+                                <button type="button" class="preset-pill"
+                                    data-subject="General Inquiry &amp; Networking">👋 Just Saying Hi</button>
                             </div>
                         </div>
 
-                        <form id="contact-form" class="contact-form" novalidate>
+                        <form id="contact-form" class="contact-form" action="https://formspree.io/f/mljebeen"
+                            method="POST" novalidate>
+                            <!-- Formspree Anti-Spam & Subject Config -->
+                            <input type="hidden" name="_subject" id="formspree-subject"
+                                value="New Portfolio Message - Sai Kiran Ketha">
+                            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="contact-name">Your Name <span class="required">*</span></label>
                                     <div class="input-wrap">
                                         <i class="ri-user-line"></i>
-                                        <input type="text" id="contact-name" name="name" placeholder="e.g. Alex Johnson" required>
+                                        <input type="text" id="contact-name" name="name" placeholder="e.g. Alex Johnson"
+                                            required>
                                     </div>
                                     <span class="form-error" id="name-error">Please enter your name</span>
                                 </div>
@@ -1133,7 +1256,8 @@
                                     <label for="contact-email">Your Email <span class="required">*</span></label>
                                     <div class="input-wrap">
                                         <i class="ri-mail-line"></i>
-                                        <input type="email" id="contact-email" name="email" placeholder="e.g. alex@example.com" required>
+                                        <input type="email" id="contact-email" name="email"
+                                            placeholder="e.g. alex@example.com" required>
                                     </div>
                                     <span class="form-error" id="email-error">Please enter a valid email address</span>
                                 </div>
@@ -1143,7 +1267,8 @@
                                 <label for="contact-subject">Subject <span class="required">*</span></label>
                                 <div class="input-wrap">
                                     <i class="ri-edit-line"></i>
-                                    <input type="text" id="contact-subject" name="subject" value="Software Engineering Internship Opportunity" required>
+                                    <input type="text" id="contact-subject" name="subject"
+                                        value="Software Engineering Internship Opportunity" required>
                                 </div>
                                 <span class="form-error" id="subject-error">Please provide a subject</span>
                             </div>
@@ -1152,7 +1277,8 @@
                                 <label for="contact-message">Your Message <span class="required">*</span></label>
                                 <div class="input-wrap textarea-wrap">
                                     <i class="ri-chat-4-line"></i>
-                                    <textarea id="contact-message" name="message" rows="5" placeholder="Tell me about your team, role, or project..." required></textarea>
+                                    <textarea id="contact-message" name="message" rows="5"
+                                        placeholder="Tell me about your team, role, or project..." required></textarea>
                                 </div>
                                 <span class="form-error" id="message-error">Please write a message</span>
                             </div>
@@ -1188,8 +1314,9 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#timeline">Journey</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="resume.html" id="footer-resume-link">Resume</a></li>
                 </ul>
             </div>
 
@@ -1198,9 +1325,11 @@
                     &copy; <span id="current-year">2026</span> Sai Kiran Ketha. All rights reserved.
                 </p>
                 <div class="footer-socials">
-                    <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="ri-github-line"></i></a>
-                    <a href="https://www.linkedin.com/in/sai-kiran-ketha/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ri-linkedin-line"></i></a>
-                    <a href="mailto:kethasaikiran123@gmail.com" aria-label="Email"><i class="ri-mail-line"></i></a>
+                    <a href="https://github.com/saikiranketha" target="_blank" rel="noopener noreferrer"
+                        aria-label="GitHub"><i class="ri-github-line"></i></a>
+                    <a href="https://www.linkedin.com/in/sai-kiran-ketha/" target="_blank" rel="noopener noreferrer"
+                        aria-label="LinkedIn"><i class="ri-linkedin-line"></i></a>
+                    <a href="mailto:kethasaikiran143@gmail.com" aria-label="Email"><i class="ri-mail-line"></i></a>
                 </div>
             </div>
         </div>
@@ -1223,96 +1352,11 @@
         </div>
     </div>
 
-    <!-- ================= RESUME VIEW MODAL ================= -->
-    <div class="modal-overlay" id="resume-modal" aria-hidden="true" role="dialog">
-        <div class="modal-card resume-modal-card">
-            <div class="modal-header-actions">
-                <h3>Full Curriculum Vitae</h3>
-                <div class="header-btns">
-                    <button class="btn btn-sm btn-secondary" onclick="window.print()">
-                        <i class="ri-printer-line"></i> Print Resume
-                    </button>
-                    <button class="modal-close-btn resume-modal-close" id="resume-modal-close" aria-label="Close modal">
-                        <i class="ri-close-line"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="resume-document" id="printable-resume">
-                <!-- Formatted resume sheet -->
-                <div class="resume-doc-header">
-                    <h2>Sai Kiran Ketha</h2>
-                    <p class="resume-doc-subtitle">Full Stack Developer &bull; Computer Science Engineering Undergrad</p>
-                    <div class="resume-doc-contacts">
-                        <span><i class="ri-mail-line"></i> kethasaikiran123@gmail.com</span>
-                        <span><i class="ri-phone-line"></i> +91 7569785117</span>
-                        <span><i class="ri-map-pin-line"></i> Andhra Pradesh, India</span>
-                        <span><i class="ri-linkedin-box-line"></i> linkedin.com/in/sai-kiran-ketha</span>
-                        <span><i class="ri-github-line"></i> github.com/saikiranketha</span>
-                    </div>
-                </div>
-
-                <div class="resume-doc-section">
-                    <h4 class="doc-sec-title">EDUCATION</h4>
-                    <div class="doc-item">
-                        <div class="doc-item-row">
-                            <strong>Bachelor of Technology (B.Tech) in Computer Science &amp; Engineering</strong>
-                            <span>2024 – 2028</span>
-                        </div>
-                        <p class="doc-institute">Swarnandhra College of Engineering &amp; Technology</p>
-                        <p class="doc-details">Relevant Coursework: Data Structures, Object-Oriented Programming with Python, Database Management Systems, Web Technologies.</p>
-                    </div>
-                </div>
-
-                <div class="resume-doc-section">
-                    <h4 class="doc-sec-title">TECHNICAL SKILLS</h4>
-                    <p><strong>Languages:</strong> Python, SQL, JavaScript (ES6+), HTML5, CSS3</p>
-                    <p><strong>Frontend:</strong> React.js, Responsive Web Design, Flexbox/Grid, Three.js WebGL</p>
-                    <p><strong>Backend &amp; DB:</strong> Node.js, Express.js, SQLite, RESTful APIs, JWT Authentication</p>
-                    <p><strong>Tools:</strong> Git, GitHub, VS Code, Postman, Linux Command Line, NxtWave CCBP 4.0</p>
-                </div>
-
-                <div class="resume-doc-section">
-                    <h4 class="doc-sec-title">FEATURED PROJECTS</h4>
-                    <div class="doc-item">
-                        <div class="doc-item-row">
-                            <strong>Smart Attendance System</strong>
-                            <span>Full Stack &bull; Python, React, SQL</span>
-                        </div>
-                        <p class="doc-details">Built a secure biometric attendance tracking system with role-based auth, student logs, analytics dashboard, and automated status calculation.</p>
-                    </div>
-
-                    <div class="doc-item">
-                        <div class="doc-item-row">
-                            <strong>VisionX AI Solution</strong>
-                            <span>Computer Vision &bull; Python, OpenCV, Dashboard</span>
-                        </div>
-                        <p class="doc-details">Engineered an AI-driven vision analysis prototype for object tracking and security monitoring with real-time performance telemetry.</p>
-                    </div>
-
-                    <div class="doc-item">
-                        <div class="doc-item-row">
-                            <strong>CCBP 4.0 Web Application Suite</strong>
-                            <span>Full Stack &bull; React, Node.js, SQLite</span>
-                        </div>
-                        <p class="doc-details">Developed production-level web applications with seamless REST API routing, persistent relational database transactions, and responsive modern UIs.</p>
-                    </div>
-                </div>
-
-                <div class="resume-doc-section">
-                    <h4 class="doc-sec-title">TRAINING &amp; CERTIFICATIONS</h4>
-                    <ul class="doc-list">
-                        <li><strong>NxtWave CCBP 4.0 Fellow:</strong> 700+ days of intensive full-stack development, Python OOP, SQL, and modern JavaScript.</li>
-                        <li><strong>10+ Industry Certifications:</strong> Certified in Python, SQL, Responsive Web Design, React.js, and Node.js.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Toast Notification Element -->
     <div class="toast-container" id="toast-container"></div>
 
-    <!-- App Script -->
+    <!-- App Script (Compatible with CCBP index.js, script.js, or app.js) -->
+    <script src="index.js"></script>
     <script src="app.js"></script>
 </body>
 

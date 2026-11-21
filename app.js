@@ -414,48 +414,54 @@ function init3DTilt() {
    ========================================================================== */
 function initFilters() {
     // 1. Skills Filter
-    const skillTabs = document.querySelectorAll('.filter-tab');
-    const skillItems = document.querySelectorAll('.skill-item');
+    const skillTabs = document.querySelectorAll('.skill-filter-btn, .filter-tab, .skl-tab');
+    const skillCards = document.querySelectorAll('.skill-card-item, .skill-item, .skl-card');
 
-    skillTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            skillTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
+    if (skillTabs.length && skillCards.length) {
+        skillTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                skillTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
 
-            const filter = tab.getAttribute('data-filter');
+                const filter = tab.getAttribute('data-filter') || tab.getAttribute('data-skl') || 'all';
 
-            skillItems.forEach(item => {
-                const category = item.getAttribute('data-category');
-                if (filter === 'all' || category === filter) {
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                }
+                skillCards.forEach(card => {
+                    const category = card.getAttribute('data-category') || card.getAttribute('data-skl-cat');
+                    if (filter === 'all' || category === filter) {
+                        card.classList.remove('hidden');
+                        card.classList.remove('skl-hidden');
+                    } else {
+                        card.classList.add('hidden');
+                        card.classList.add('skl-hidden');
+                    }
+                });
             });
         });
-    });
+    }
 
     // 2. Project Filter
     const projectTabs = document.querySelectorAll('.project-filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
 
-    projectTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            projectTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
+    if (projectTabs.length && projectCards.length) {
+        projectTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                projectTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
 
-            const filter = tab.getAttribute('data-pfilter');
+                const filter = tab.getAttribute('data-pfilter');
 
-            projectCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                if (filter === 'all' || category === filter) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
+                projectCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
             });
         });
-    });
+    }
 }
 
 /* ==========================================================================
